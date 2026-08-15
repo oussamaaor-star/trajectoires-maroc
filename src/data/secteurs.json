@@ -1,0 +1,161 @@
+[
+  {
+    "id": "automobile",
+    "nom": "Industrie automobile & aéronautique",
+    "couleurToken": "auto",
+    "resume": "Deux ouvertures d'usines jalonnent la période : Renault à Melloussa en 2012, PSA à Kénitra en 2019. Les exportations de voitures de tourisme sont passées de 0,007 milliard de dirhams en 1998 à 59,1 milliards en 2025, après un record de 68 milliards en 2024. L'aéronautique (Safran, Boeing, zone Midparc à Casablanca) atteint son plus haut niveau en 2025 et complète ce pôle industriel tourné vers l'export.",
+    "kpis": [
+      {
+        "label": "Exportations de voitures de tourisme",
+        "valeur": 59.113,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": -13.1,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Solde net de la filière automobile",
+        "valeur": 43.163,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": -16.2,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Exportations aéronautiques",
+        "valeur": 17.875,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": 10.4,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Produits manufacturés dans les exportations",
+        "valeur": 82.9,
+        "unite": "% des exportations de marchandises",
+        "annee": 2024,
+        "variation": 8.2,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      },
+      {
+        "label": "Poids de l'industrie dans le PIB",
+        "valeur": 25.2,
+        "unite": "% du PIB",
+        "annee": 2025,
+        "variation": -0.4,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      }
+    ]
+  },
+  {
+    "id": "ble",
+    "nom": "Agriculture — blé & céréales",
+    "couleurToken": "ble",
+    "resume": "La filière céréalière, dominée par le blé, dépend fortement de la pluviométrie : la production nationale oscille entre 1,8 et 11,7 millions de tonnes selon les années. Le Maroc complète chaque récolte par des importations, ce qui l'expose aux chocs sur les prix mondiaux, comme lors de la guerre en Ukraine en 2022.",
+    "kpis": [
+      {
+        "label": "Production céréalière",
+        "valeur": 3.21,
+        "unite": "millions de tonnes",
+        "annee": 2024,
+        "variation": -43,
+        "source": "Banque Mondiale",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Importations de blé",
+        "valeur": 16.803,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": -5.8,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Rendement céréalier",
+        "valeur": 1240,
+        "unite": "kg par hectare",
+        "annee": 2024,
+        "variation": -16.3,
+        "source": "Banque Mondiale",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Poids de l'agriculture dans le PIB",
+        "valeur": 10.5,
+        "unite": "% du PIB",
+        "annee": 2025,
+        "variation": -0.1,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      },
+      {
+        "label": "Produits alimentaires dans les importations",
+        "valeur": 11.2,
+        "unite": "% des importations de marchandises",
+        "annee": 2024,
+        "variation": -2.8,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      }
+    ]
+  },
+  {
+    "id": "energie",
+    "nom": "Énergie — pétrole & gaz",
+    "couleurToken": "energie",
+    "resume": "Le Maroc importe plus de 90  % de l'énergie qu'il consomme. La raffinerie Samir ferme en 2015. La facture du pétrole BRUT, qui culminait à 37,6 milliards de dirhams en 2012, tombe à zéro en 2022 comme en 2024, tandis que les produits RAFFINÉS, importés prêts à l'emploi, prennent le relais. Le complexe solaire Noor, à Ouarzazate, est entré en service en 2016 ; l'objectif officiel est de 52 % de capacité électrique renouvelable en 2030.",
+    "kpis": [
+      {
+        "label": "Dépendance énergétique (imports nets)",
+        "valeur": 93.6,
+        "unite": "% de l'énergie utilisée",
+        "annee": 2023,
+        "variation": -0.4,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      },
+      {
+        "label": "Importations de gaz de pétrole",
+        "valeur": 19.409,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": -8.7,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Importations de produits pétroliers raffinés",
+        "valeur": 18.323,
+        "unite": "milliards DH",
+        "annee": 2025,
+        "variation": -2.1,
+        "source": "Office des Changes",
+        "uniteVariation": "%"
+      },
+      {
+        "label": "Renouvelables dans la consommation finale",
+        "valeur": 10.9,
+        "unite": "% de la consommation finale d'énergie",
+        "annee": 2021,
+        "variation": -0.2,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      },
+      {
+        "label": "Carburants dans les importations",
+        "valeur": 11.8,
+        "unite": "% des importations de marchandises",
+        "annee": 2024,
+        "variation": -5.2,
+        "source": "Banque Mondiale",
+        "uniteVariation": "pt"
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "population_legale_rgph_2024",
+    "secteur": "",
+    "nom": "Population légale (RGPH 2024)",
+    "unite": "habitants",
+    "annee": 2024,
+    "source": "HCP — RGPH 2024, décret n° 2.24.1009 (population légale au 1er septembre 2024)",
+    "note": "Donnée STRUCTURELLE de cadrage, pas un indicateur économique. Elle est affichée pour que la carte fonctionne sur des chiffres réels et vérifiables en attendant les indicateurs sectoriels du binôme data (rendement céréalier, emploi industriel, capacité électrique installée…).",
+    "valeurs": {
+      "MA-01": 4030222,
+      "MA-02": 2294665,
+      "MA-03": 4467911,
+      "MA-04": 5132639,
+      "MA-05": 2525801,
+      "MA-06": 7688967,
+      "MA-07": 4892393,
+      "MA-08": 1655623,
+      "MA-09": 3020431,
+      "MA-10": 448685,
+      "MA-11": 451028,
+      "MA-12": 219965
+    }
+  }
+]

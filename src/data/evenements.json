@@ -1,0 +1,92 @@
+[
+  {
+    "secteur": "automobile",
+    "annee": 2012,
+    "libelle": "Ouverture usine Renault Tanger",
+    "detail": "Renault-Nissan met en service à Melloussa, près de Tanger, la plus grande usine automobile d'Afrique."
+  },
+  {
+    "secteur": "automobile",
+    "annee": 2016,
+    "libelle": "Accord industriel Boeing",
+    "detail": "Boeing signe avec le Maroc un accord d'écosystème aéronautique, aux côtés de Safran et de la zone Midparc."
+  },
+  {
+    "secteur": "automobile",
+    "annee": 2019,
+    "libelle": "Ouverture usine PSA Kénitra",
+    "detail": "Le groupe PSA (devenu Stellantis) inaugure son usine de Kénitra en juin 2019."
+  },
+  {
+    "secteur": "automobile",
+    "annee": 2020,
+    "libelle": "Choc COVID-19",
+    "detail": "La pandémie interrompt les chaînes de production automobiles et fait reculer les exportations."
+  },
+  {
+    "secteur": "ble",
+    "annee": 1995,
+    "libelle": "Sécheresse majeure",
+    "detail": "Campagne agricole catastrophique : la production céréalière tombe à 1,8 million de tonnes."
+  },
+  {
+    "secteur": "ble",
+    "annee": 2016,
+    "libelle": "Sécheresse sévère",
+    "detail": "Après un hiver très sec, la récolte céréalière chute à 3,6 millions de tonnes."
+  },
+  {
+    "secteur": "ble",
+    "annee": 2020,
+    "libelle": "Sécheresse et COVID-19",
+    "detail": "Année sèche (3,3 millions de tonnes de céréales) doublée de la crise sanitaire."
+  },
+  {
+    "secteur": "ble",
+    "annee": 2022,
+    "libelle": "Sécheresse et choc ukrainien",
+    "detail": "Récolte très basse (3,5 millions de tonnes) alors que la guerre en Ukraine fait flamber le prix mondial du blé."
+  },
+  {
+    "secteur": "ble",
+    "annee": 2024,
+    "libelle": "Sécheresse persistante",
+    "detail": "Nouvelle campagne sèche : la production céréalière retombe à 3,2 millions de tonnes."
+  },
+  {
+    "secteur": "energie",
+    "annee": 2015,
+    "libelle": "Fermeture raffinerie Samir",
+    "detail": "L'unique raffinerie du pays, à Mohammedia, cesse son activité : le Maroc importe depuis l'essentiel de ses produits raffinés."
+  },
+  {
+    "secteur": "energie",
+    "annee": 2016,
+    "libelle": "Mise en service Noor I",
+    "detail": "La centrale solaire à concentration Noor I (160 MW) entre en service à Ouarzazate en février 2016."
+  },
+  {
+    "secteur": "energie",
+    "annee": 2021,
+    "libelle": "Fermeture gazoduc GME",
+    "detail": "L'Algérie ferme le gazoduc Maghreb-Europe fin octobre 2021, privant le Maroc du gaz algérien."
+  },
+  {
+    "secteur": "energie",
+    "annee": 2022,
+    "libelle": "Crise énergétique mondiale",
+    "detail": "L'invasion de l'Ukraine fait flamber les prix du gaz et des produits pétroliers importés."
+  },
+  {
+    "secteur": "energie",
+    "annee": 2030,
+    "libelle": "Objectif 52  % renouvelable",
+    "detail": "Cible officielle : 52  % de la capacité électrique installée d'origine renouvelable à l'horizon 2030."
+  },
+  {
+    "secteur": "contexte",
+    "annee": 2020,
+    "libelle": "Récession COVID-19",
+    "detail": "Le PIB marocain recule d'environ 7  % en 2020, avant un fort rebond en 2021."
+  }
+]

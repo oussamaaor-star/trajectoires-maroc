@@ -1,0 +1,52 @@
+[
+  {
+    "id": "exports_voitures",
+    "nom": "Exportations de voitures de tourisme",
+    "modele": "démonstration",
+    "points": [
+      {
+        "annee": 2026,
+        "valeur": 61.11,
+        "basse": 57.44,
+        "haute": 64.78
+      },
+      {
+        "annee": 2027,
+        "valeur": 63.11,
+        "basse": 55.54,
+        "haute": 70.68
+      },
+      {
+        "annee": 2028,
+        "valeur": 65.1,
+        "basse": 53.38,
+        "haute": 76.82
+      }
+    ]
+  },
+  {
+    "id": "dependance_energetique",
+    "nom": "Dépendance énergétique (importations nettes)",
+    "modele": "démonstration",
+    "points": [
+      {
+        "annee": 2024,
+        "valeur": 94.57,
+        "basse": 93.57,
+        "haute": 95.57
+      },
+      {
+        "annee": 2025,
+        "valeur": 95.53,
+        "basse": 93.53,
+        "haute": 97.53
+      },
+      {
+        "annee": 2026,
+        "valeur": 96.5,
+        "basse": 93.5,
+        "haute": 99.5
+      }
+    ]
+  }
+]

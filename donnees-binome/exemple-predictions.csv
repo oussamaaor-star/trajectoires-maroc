@@ -1,0 +1,4 @@
+﻿secteur;indicateur;annee;valeur_prevue;borne_basse;borne_haute;modele
+automobile;exports_voitures;2026;62.4;58.1;66.7;Prophet
+automobile;exports_voitures;2027;65.2;59.3;71.1;Prophet
+automobile;exports_voitures;2028;68.0;60.2;75.8;Prophet
