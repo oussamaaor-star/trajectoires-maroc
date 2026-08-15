@@ -54,7 +54,7 @@ function BarresAnnuelles({ serie, projection = [] }) {
     const valeur = valeurPour(serie, annee)
     if (valeur != null) return [formate(valeur, serie.unite)]
     const prevu = projection.find((p) => p.annee === annee)
-    return prevu ? [`Projection : ${formate(prevu.valeur, serie.unite)}`] : []
+    return prevu ? [`Projection : ${formate(prevu.valeur, serie.unite)}`] : []
   }
 
   /* Valeurs mises en avant : le pic et la dernière année — jamais toutes. */
@@ -63,7 +63,7 @@ function BarresAnnuelles({ serie, projection = [] }) {
 
   return (
     <div className="figure-graphique" ref={figure} onMouseMove={gereSouris} onMouseLeave={() => setSurvol(null)}>
-      <svg viewBox={`0 0 ${VUE.largeur} ${VUE.hauteur}`} role="img" aria-label={`Graphique : ${serie.nom}`}>
+      <svg viewBox={`0 0 ${VUE.largeur} ${VUE.hauteur}`} role="img" aria-label={`Graphique : ${serie.nom}`}>
         <GrilleAxes echelle={echelle} xPour={xPour} yPour={yPour} annees={anneesAffichees} />
 
         {points.map((p) => (
@@ -79,7 +79,7 @@ function BarresAnnuelles({ serie, projection = [] }) {
           />
         ))}
 
-        {/* barres projetées : creuses, cerclées de pointillés, partant de zéro */}
+        {/* barres projetées : creuses, cerclées de pointillés, partant de zéro */}
         {projection.map((p) => (
           <rect
             key={p.annee}

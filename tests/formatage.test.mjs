@@ -8,12 +8,24 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 
-import { formate, formateNombre, formateVariation, uniteCourte } from '../src/utils/formatage.js'
+import {
+  ESPACE_FINE,
+  ESPACE_MOT,
+  formate,
+  formateNombre,
+  formateVariation,
+  uniteCourte,
+} from '../src/utils/formatage.js'
 
-/* ⚠️ En français, Intl.NumberFormat sépare les milliers avec une ESPACE FINE
-   INSÉCABLE (U+202F), pas une espace ordinaire. On la nomme pour que les
-   assertions restent lisibles. */
-const ESPACE_FINE = '\u202f'
+/* ⚠️ PIÈGE MAJEUR : ni Intl.NumberFormat ni formate() ne séparent avec une
+   espace ordinaire (U+0020). Les milliers et le « % » prennent une ESPACE
+   FINE INSÉCABLE (U+202F), les unités écrites en lettres une espace
+   insécable ordinaire (U+00A0). Un test écrit avec une espace normale
+   échouerait sans qu'on comprenne pourquoi — les trois caractères sont
+   visuellement identiques.
+   Les deux constantes sont IMPORTÉES du module testé, jamais recopiées :
+   ce fichier en gardait sa propre copie, et une assertion pouvait donc
+   rester verte en décrivant une typographie que le site ne produit plus. */
 
 describe('formateNombre — convention française', () => {
   it('sépare les milliers avec une espace fine (jamais une virgule)', () => {
@@ -43,8 +55,8 @@ describe('uniteCourte — abréviation des unités', () => {
 
 describe('formate & formateVariation', () => {
   it('assemble le nombre français et l’unité abrégée', () => {
-    assert.equal(formate(6.39, 'milliards USD'), '6,39 Md USD')
-    assert.equal(formate(93.6, "% de l'énergie utilisée"), '93,6 %')
+    assert.equal(formate(6.39, 'milliards USD'), `6,39${ESPACE_MOT}Md USD`)
+    assert.equal(formate(93.6, "% de l'énergie utilisée"), `93,6${ESPACE_FINE}%`)
   })
 
   it('ajoute un « + » aux hausses, rien aux baisses ni au zéro', () => {

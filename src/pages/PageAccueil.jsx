@@ -25,8 +25,8 @@ function PageAccueil() {
           <p className="hero__surtitre">DIGIUP · plateforme de démonstration</p>
           <h1>Trajectoires économiques du Maroc</h1>
           <p className="hero__description">
-            Trois secteurs, trois décennies de données publiques : l'essor de
-            l'automobile, la vulnérabilité du blé et la dépendance énergétique,
+            Trois secteurs, trois décennies de données publiques : l’essor de
+            l’automobile, la vulnérabilité du blé et la dépendance énergétique,
             racontés par des séries chiffrées et leurs sources.
           </p>
         </div>
@@ -51,7 +51,7 @@ function PageAccueil() {
           <p className="section-chapitre__intro">
             Trois repères macroéconomiques pour situer les trajectoires
             sectorielles (dernière année disponible, écart en points par
-            rapport à l'année précédente).
+            rapport à l’année précédente).
           </p>
           <div className="grille-kpi">
             {IDS_CONTEXTE.map((idSerie) => {

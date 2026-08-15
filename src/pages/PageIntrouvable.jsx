@@ -30,9 +30,9 @@ function PageIntrouvable() {
       <header className="hero">
         <div className="conteneur">
           <p className="hero__surtitre">Erreur</p>
-          <h1>Cette page n'existe pas</h1>
+          <h1>Cette page n’existe pas</h1>
           <p className="hero__description">
-            L'adresse demandée ne correspond à aucune page de la plateforme.
+            L’adresse demandée ne correspond à aucune page de la plateforme.
             Elle a peut-être été mal recopiée.
           </p>
         </div>
@@ -42,7 +42,7 @@ function PageIntrouvable() {
         <section className="section-chapitre">
           <h2>Où aller</h2>
           <p className="section-chapitre__intro">
-            La plateforme compte six pages. Les voici toutes :
+            La plateforme compte six pages. Les voici toutes :
           </p>
           <ul className="liste-secours">
             <li>
@@ -61,7 +61,7 @@ function PageIntrouvable() {
               <Link to="/territoires">Territoires</Link> — les douze régions
             </li>
             <li>
-              <Link to="/sources">Sources</Link> — d'où viennent les chiffres
+              <Link to="/sources">Sources</Link> — d’où viennent les chiffres
             </li>
           </ul>
         </section>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import MiniSparkline from './MiniSparkline'
-import { formateNombre, uniteCourte } from '../utils/formatage'
+import { formateNombre, uniteCourte, espaceUnite } from '../utils/formatage'
 
 /* Carte cliquable d'un secteur (accueil + « Continuer l'exploration »).
    L'attribut data-secteur posé sur la carte suffit à la colorer : le CSS
@@ -15,7 +15,9 @@ function CarteSecteur({ secteur, serieSparkline }) {
       <p className="carte-secteur__resume">{secteur.resume}</p>
       {serieSparkline && <MiniSparkline points={serieSparkline.points} />}
       <div className="carte-secteur__chiffre">
-        {formateNombre(kpi.valeur)} {uniteCourte(kpi.unite)}
+        {formateNombre(kpi.valeur)}
+        {espaceUnite(uniteCourte(kpi.unite))}
+        {uniteCourte(kpi.unite)}
         <small>
           {kpi.label} ({kpi.annee})
         </small>

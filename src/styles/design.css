@@ -634,6 +634,32 @@ code { overflow-wrap: anywhere; }
 /* (ajout développeur) Conteneur à défilement horizontal : les tableaux
    multi-séries gardent leurs colonnes lisibles sur petit écran */
 .defilement-tableau { overflow-x: auto; }
+/* Les tableaux débordent horizontalement sur petit écran, et rien ne le disait :
+   à 360 px, le tableau de données d'une page sectorielle montre trois colonnes
+   sur huit. Ces ombres de bord l'annoncent.
+
+   ⚠ Elles sont PERMANENTES : elles mentiraient sur un tableau qui tient à
+   l'écran. D'où la borne à 640 px — en dessous de cette largeur de fenêtre, un
+   tableau large d'au moins 640 px ne PEUT pas tenir dans un conteneur plus
+   étroit qu'elle : le débordement est certain, l'ombre dit donc toujours vrai.
+
+   DEUX MÉTHODES ESSAYÉES ET ÉCARTÉES, vérification à l'image à l'appui. Des
+   ombres peintes sur le FOND du conteneur (`background-attachment: local`)
+   passent DERRIÈRE les lignes du tableau, qui ont leur propre fond opaque. Et
+   un fondu du contenu (`mask-image`) est invisible ici : au bord droit du
+   tableau il n'y a pas d'encre, seulement du blanc. L'ombre intérieure, elle,
+   est peinte dans le repère de la BOÎTE : elle reste collée au bord pendant le
+   défilement, et se voit sur du blanc.
+
+   Symétrique, donc valable tel quel en arabe. */
+@media (max-width: 640px) {
+  .defilement-tableau {
+    box-shadow:
+      inset 14px 0 10px -12px rgba(15, 23, 32, 0.28),
+      inset -14px 0 10px -12px rgba(15, 23, 32, 0.28);
+  }
+}
+
 .defilement-tableau .tableau-donnees { min-width: 640px; }
 
 /* Texte reserve aux lecteurs d'ecran : present dans le document, invisible a

@@ -72,7 +72,7 @@ function ConteneurGraphique({ titre, sousTitre, series, idFichier, children }) {
       )}
 
       <p className="conteneur-graphique__source">
-        Source :{' '}
+        Source :{' '}
         {urlSource ? (
           <a href={urlSource} target="_blank" rel="noreferrer">
             {principale.source}

@@ -94,7 +94,7 @@ function BarresRegions({ indicateur, regions }) {
         </div>
       )}
 
-      <p className="conteneur-graphique__source">Source : {indicateur.source}</p>
+      <p className="conteneur-graphique__source">Source : {indicateur.source}</p>
     </section>
   )
 }

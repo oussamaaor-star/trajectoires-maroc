@@ -19,8 +19,10 @@ function TableauQualite() {
   const synthese = syntheseQualite(toutesLesSeries)
 
   /* Les années manquantes, écrites en PLAGES quand elles se suivent :
-     « 2016-2021, 2023 » se lit, « 2016, 2017, 2018, 2019, 2020, 2021, 2023 »
-     se déchiffre. */
+     « 2016–2021, 2023 » se lit, « 2016, 2017, 2018, 2019, 2020, 2021, 2023 »
+     se déchiffre. Le séparateur est le DEMI-CADRATIN (U+2013), celui de toutes
+     les plages de nombres du site — le même que periodeDesSeries() pose dans
+     le badge du hero, pour que deux plages voisines s'écrivent pareil. */
   const enPlages = (annees) => {
     if (annees.length === 0) return '—'
     const plages = []
@@ -31,11 +33,11 @@ function TableauQualite() {
         precedente = annee
         continue
       }
-      plages.push(debut === precedente ? `${debut}` : `${debut}-${precedente}`)
+      plages.push(debut === precedente ? `${debut}` : `${debut}–${precedente}`)
       debut = annee
       precedente = annee
     }
-    plages.push(debut === precedente ? `${debut}` : `${debut}-${precedente}`)
+    plages.push(debut === precedente ? `${debut}` : `${debut}–${precedente}`)
     return plages.join(', ')
   }
 
@@ -43,9 +45,9 @@ function TableauQualite() {
     <section className="section-chapitre">
       <h2>Ce que les données couvrent vraiment</h2>
       <p className="section-chapitre__intro">
-        Cette plateforme ne comble jamais une valeur manquante : une année non
+        Cette plateforme ne comble jamais une valeur manquante : une année non
         publiée reste un trou, sur le graphique comme dans le fichier. La
-        contrepartie, c'est de les compter. Le relevé ci-dessous est calculé à
+        contrepartie, c’est de les compter. Le relevé ci-dessous est calculé à
         partir des séries elles-mêmes, il change avec elles.
       </p>
 
@@ -68,7 +70,7 @@ function TableauQualite() {
       <div className="defilement-tableau">
         <table className="tableau-donnees">
           <caption className="sr-only">
-            Couverture de chaque série : période, nombre de relevés, part des années
+            Couverture de chaque série : période, nombre de relevés, part des années
             documentées et années manquantes.
           </caption>
           <thead>
@@ -86,7 +88,7 @@ function TableauQualite() {
                 <td>{ligne.nom}</td>
                 {/* dir="ltr" : une plage d'années garde son ordre de lecture */}
                 <td dir="ltr">
-                  {ligne.debut}-{ligne.fin}
+                  {ligne.debut}–{ligne.fin}
                 </td>
                 <td className="num">
                   {ligne.releves} / {ligne.etendue}
@@ -100,7 +102,7 @@ function TableauQualite() {
       </div>
 
       <p className="mention-prevision">
-        La couverture rapporte le nombre de relevés au nombre d'années
+        La couverture rapporte le nombre de relevés au nombre d’années
         possibles entre la première et la dernière — et non au nombre de
         relevés lui-même, qui donnerait 100&#8239;% partout.
       </p>

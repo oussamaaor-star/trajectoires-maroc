@@ -11,7 +11,7 @@
 
    Calculs utilisés : minimum, maximum, pourcentage, moyenne. Rien de plus.
    ============================================================================ */
-import { formate, formateNombre } from './formatage.js'
+import { ESPACE_FINE, ESPACE_MOT, formate, formateNombre } from './formatage.js'
 
 /* Arrondi à 1 décimale : évite d'afficher « 0,30000000000000004 ». */
 function arrondi1(valeur) {
@@ -50,11 +50,11 @@ function phraseEvolution(serie) {
     /* « la valeur » et non « la part » : trois de ces séries sont des TAUX
        (croissance, inflation, chômage), pas des parts d'un tout. « La part
        d'inflation a perdu 6,1 points » ne veut rien dire. */
-    return `De ${depart} à ${arrivee}, la valeur a ${sensPoints} ${formateNombre(Math.abs(points))} ${mot} sur la période.`
+    return `De ${depart} à ${arrivee}, la valeur a ${sensPoints} ${formateNombre(Math.abs(points))}${ESPACE_MOT}${mot} sur la période.`
   }
 
   if (premier.valeur <= 0) {
-    return `De ${depart} à ${arrivee} : forte progression depuis un niveau très faible (aucun pourcentage n'est calculable à partir de zéro).`
+    return `De ${depart} à ${arrivee} : forte progression depuis un niveau très faible (aucun pourcentage n’est calculable à partir de zéro).`
   }
 
   const rapport = dernier.valeur / premier.valeur
@@ -73,7 +73,7 @@ function phraseEvolution(serie) {
 
   const pourcentage = arrondi1((rapport - 1) * 100)
   const sens = pourcentage >= 0 ? 'augmenté' : 'diminué'
-  return `De ${depart} à ${arrivee}, la valeur a ${sens} de ${formateNombre(Math.abs(pourcentage))} % sur la période.`
+  return `De ${depart} à ${arrivee}, la valeur a ${sens} de ${formateNombre(Math.abs(pourcentage))}${ESPACE_FINE}% sur la période.`
 }
 
 /* --- Phrase 2 : le maximum et le minimum, avec leur année ------------------- */

@@ -97,12 +97,12 @@ function CourbeTrajectoire({ serie, etiquette, projection = [] }) {
     const valeur = valeurPour(serie, annee)
     if (valeur != null) return [formate(valeur, serie.unite)]
     const prevu = projection.find((p) => p.annee === annee)
-    return prevu ? [`Projection : ${formate(prevu.valeur, serie.unite)}`] : []
+    return prevu ? [`Projection : ${formate(prevu.valeur, serie.unite)}`] : []
   }
 
   return (
     <div className="figure-graphique" ref={figure} onMouseMove={gereSouris} onMouseLeave={() => setSurvol(null)}>
-      <svg viewBox={`0 0 ${VUE.largeur} ${VUE.hauteur}`} role="img" aria-label={`Graphique : ${serie.nom}`}>
+      <svg viewBox={`0 0 ${VUE.largeur} ${VUE.hauteur}`} role="img" aria-label={`Graphique : ${serie.nom}`}>
         <GrilleAxes echelle={echelle} xPour={xPour} yPour={yPour} annees={anneesSurvolables} />
 
         {/* nappe très légère sous la courbe — seulement si l'échelle part de zéro

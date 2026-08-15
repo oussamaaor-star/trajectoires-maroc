@@ -49,7 +49,7 @@ function PageSources() {
           <p className="hero__surtitre">Transparence</p>
           <h1>Sources des données</h1>
           <p className="hero__description">
-            Chaque chiffre de la plateforme est traçable : {toutesLesSources.length}{' '}
+            Chaque chiffre de la plateforme est traçable : {toutesLesSources.length}{' '}
             sources publiques, leurs indicateurs couverts et leurs limites.
           </p>
         </div>
@@ -63,35 +63,35 @@ function PageSources() {
           <h2>Ce que contient cette version</h2>
           <p>
             Les {toutesLesSeries.length} séries affichées viennent toutes de
-            sources publiques vérifiables. Aucune valeur n'est inventée et aucun
-            trou n'est comblé : une année non publiée reste vide, sur le
+            sources publiques vérifiables. Aucune valeur n’est inventée et aucun
+            trou n’est comblé : une année non publiée reste vide, sur le
             graphique comme dans le fichier. Le décompte série par série est
             plus bas sur cette page.
           </p>
           <p>
             {parSource.map((bloc, rang) => (
               <span key={bloc.nom}>
-                {rang > 0 ? ' ; ' : ''}
+                {rang > 0 ? ' ; ' : ''}
                 <strong>
                   {bloc.series} série{bloc.series > 1 ? 's' : ''}
                 </strong>{' '}
-                — {bloc.nom} (<span dir="ltr">{bloc.debut}-{bloc.fin}</span>)
+                — {bloc.nom} (<span dir="ltr">{bloc.debut}–{bloc.fin}</span>)
               </span>
             ))}
             . Les séries douanières ont été transmises le 02/08/2026 par le
-            binôme data du stage, sous forme d'un tableau croisé mensuel agrégé
-            ici en totaux annuels ; l'année 2026, incomplète, en est exclue. La
+            binôme data du stage, sous forme d’un tableau croisé mensuel agrégé
+            ici en totaux annuels ; l’année 2026, incomplète, en est exclue. La
             population par région, qui alimente la carte, vient du recensement
-            2024 du HCP : c'est une donnée structurelle, et elle ne figure pas
+            2024 du HCP : c’est une donnée structurelle, et elle ne figure pas
             dans ce décompte de séries annuelles.
           </p>
           <p>
             <strong>Une exception, et elle est signalée partout où elle
-            apparaît :</strong> les prévisions ne sortent d'aucun modèle. Ce
-            sont des valeurs écrites à la main pour développer l'affichage, en
-            attendant les modèles du binôme data. La plateforme l'annonce
-            au-dessus du graphique concerné, dans la vue « Données » et dans
-            l'export CSV — et l'avertissement disparaîtra de lui-même le jour
+            apparaît :</strong> les prévisions ne sortent d’aucun modèle. Ce
+            sont des valeurs écrites à la main pour développer l’affichage, en
+            attendant les modèles du binôme data. La plateforme l’annonce
+            au-dessus du graphique concerné, dans la vue « Données » et dans
+            l’export CSV — et l’avertissement disparaîtra de lui-même le jour
             où un vrai modèle sera livré.
           </p>
         </div>
@@ -120,7 +120,7 @@ function PageSources() {
               ))}
             </p>
             <p>
-              <strong>Limites :</strong> {source.limites}
+              <strong>Limites :</strong> {source.limites}
             </p>
           </article>
         ))}
@@ -134,18 +134,18 @@ function PageSources() {
           <h2>Ce qui reste à livrer</h2>
           <p className="section-chapitre__intro">
             Deux briques manquent encore, et la plateforme est déjà prête à les
-            recevoir : les fichiers se déposent dans <code>donnees-binome/</code>,
-            une commande les convertit, et <strong>aucune ligne de code n'est à
+            recevoir : les fichiers se déposent dans <code>donnees-binome/</code>,
+            une commande les convertit, et <strong>aucune ligne de code n’est à
             modifier</strong>.
           </p>
           <p>
             <strong>Les prévisions</strong> —{' '}
             <code>predictions.csv</code>, colonnes <code>secteur ; indicateur ;
             annee ; valeur_prevue ; borne_basse ; borne_haute ; modele</code>.
-            Les bornes sont facultatives : sans elles la courbe prévue s'affiche
-            sans intervalle, plutôt qu'avec une incertitude fabriquée. Dès que
-            la colonne <code>modele</code> porte un nom réel, l'avertissement
-            « valeurs de démonstration » cède la place à une mention discrète
+            Les bornes sont facultatives : sans elles la courbe prévue s’affiche
+            sans intervalle, plutôt qu’avec une incertitude fabriquée. Dès que
+            la colonne <code>modele</code> porte un nom réel, l’avertissement
+            « valeurs de démonstration » cède la place à une mention discrète
             indiquant le modèle utilisé.
           </p>
           <p>
@@ -153,15 +153,15 @@ function PageSources() {
             <code>regions.csv</code>, colonnes <code>indicateur ; secteur ;
             region ; annee ; valeur ; unite ; source</code>, avec les codes
             officiels <code>MA-01</code> à <code>MA-12</code>. La carte affiche
-            aujourd'hui la population du recensement 2024 : une donnée
-            structurelle, pas économique, choisie parce qu'elle est réelle et
-            vérifiable. Une cellule vide reste vide — la région s'affiche
+            aujourd’hui la population du recensement 2024 : une donnée
+            structurelle, pas économique, choisie parce qu’elle est réelle et
+            vérifiable. Une cellule vide reste vide — la région s’affiche
             hachurée plutôt que remplie par une estimation.
           </p>
           <p className="mention-prevision">
-            La conversion refuse d'écrire quoi que ce soit tant qu'une erreur
+            La conversion refuse d’écrire quoi que ce soit tant qu’une erreur
             subsiste dans un fichier, et les données remplacées sont
-            sauvegardées avant d'être écrasées. Le format exact, avec un exemple
+            sauvegardées avant d’être écrasées. Le format exact, avec un exemple
             de chaque fichier, est décrit dans{' '}
             <code>donnees-binome/LISEZMOI.md</code>.
           </p>

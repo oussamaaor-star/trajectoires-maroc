@@ -11,7 +11,7 @@ function PiedPage() {
             livrées. Une phrase fausse répétée six fois reste une phrase
             fausse. */}
         <p>
-          Stage DIGIUP 2026 — plateforme de démonstration. Données publiques :
+          Stage DIGIUP 2026 — plateforme de démonstration. Données publiques :
           Office des Changes, Banque Mondiale, HCP —{' '}
           <Link to="/sources">voir les sources et ce qui reste à livrer</Link>.
         </p>

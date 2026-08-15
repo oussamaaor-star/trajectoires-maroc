@@ -2,7 +2,7 @@
   {
     "source": "Banque Mondiale — World Development Indicators",
     "url": "https://data.worldbank.org",
-    "description": "Indicateurs sectoriels du Maroc récupérés le 20/07/2026 via l'API publique (pays MAR, période 1990-2025).",
+    "description": "Indicateurs sectoriels du Maroc récupérés le 20/07/2026 via l’API publique (pays MAR, période 1990–2025).",
     "indicateursCouverts": [
       "AG.PRD.CREL.MT",
       "AG.YLD.CREL.KG",
@@ -14,12 +14,12 @@
       "TM.VAL.FUEL.ZS.UN",
       "TX.VAL.MANF.ZS.UN"
     ],
-    "limites": "Dernière année disponible variable selon l'indicateur (2021 pour les renouvelables, 2023-2024 pour la plupart) ; valeurs récentes susceptibles d'être révisées ; la part des énergies fossiles (EG.USE.COMM.FO.ZS) a été écartée car la série est interrompue après 2014."
+    "limites": "Dernière année disponible variable selon l’indicateur (2021 pour les renouvelables, 2023–2024 pour la plupart) ; valeurs récentes susceptibles d’être révisées ; la part des énergies fossiles (EG.USE.COMM.FO.ZS) a été écartée car la série est interrompue après 2014."
   },
   {
     "source": "Office des Changes",
     "url": "https://www.oc.gov.ma",
-    "description": "Statistiques douanières du commerce extérieur marocain, transmises le 02/08/2026 par le binôme data du stage sous forme d'un tableau croisé mensuel couvrant janvier 1998 à mars 2026. Valeurs en dirhams courants, agrégées ici en totaux annuels ; l'année 2026, incomplète (3 mois sur 12), est exclue des séries annuelles pour ne pas afficher un effondrement qui n'existe pas. Onze produits ont été retenus, correspondant aux trois secteurs de la plateforme, plus un solde net calculé pour la filière automobile.",
+    "description": "Statistiques douanières du commerce extérieur marocain, transmises le 02/08/2026 par le binôme data du stage sous forme d’un tableau croisé mensuel couvrant janvier 1998 à mars 2026. Valeurs en dirhams courants, agrégées ici en totaux annuels ; l’année 2026, incomplète (3 mois sur 12), est exclue des séries annuelles pour ne pas afficher un effondrement qui n’existe pas. Onze produits ont été retenus, correspondant aux trois secteurs de la plateforme, plus un solde net calculé pour la filière automobile.",
     "indicateursCouverts": [
       "Voitures de tourisme (exportations)",
       "Parties et pièces pour voitures (exportations et importations)",
@@ -27,16 +27,16 @@
       "Blé, orge et autres céréales (importations)",
       "Gaz de pétrole, huile brute, produits raffinés, houilles et cokes (importations)"
     ],
-    "limites": "Valeurs en dirhams COURANTS : elles ne sont pas corrigées de l'inflation, une progression sur 28 ans mélange donc effet prix et effet volume. Le début de série est très bas (0,007 milliard de dirhams d'exportations de voitures en 1998), ce qui rend tout rapport de croissance spectaculaire mais peu informatif — le moteur d'analyse le signale de lui-même. Les libellés sont ceux de la nomenclature douanière marocaine, plus fins que les codes SH internationaux mais non directement comparables à d'autres pays : les comparaisons internationales de la plateforme restent fondées sur la Banque Mondiale. Le « solde net de la filière automobile » (exportations de voitures et de pièces, moins importations de pièces) est un calcul de la plateforme, pas une publication de l'Office des Changes."
+    "limites": "Valeurs en dirhams COURANTS : elles ne sont pas corrigées de l’inflation, une progression sur 28 ans mélange donc effet prix et effet volume. Le début de série est très bas (0,007 milliard de dirhams d’exportations de voitures en 1998), ce qui rend tout rapport de croissance spectaculaire mais peu informatif — le moteur d’analyse le signale de lui-même. Les libellés sont ceux de la nomenclature douanière marocaine, plus fins que les codes SH internationaux mais non directement comparables à d’autres pays : les comparaisons internationales de la plateforme restent fondées sur la Banque Mondiale. Le « solde net de la filière automobile » (exportations de voitures et de pièces, moins importations de pièces) est un calcul de la plateforme, pas une publication de l’Office des Changes."
   },
   {
     "source": "HCP — Recensement général de la population et de l'habitat (RGPH) 2024",
     "url": "https://www.hcp.ma/downloads/RGPH-2024_t22752.html",
-    "description": "Population légale du Royaume du Maroc au 1er septembre 2024, répartie par région, publiée par le Haut-Commissariat au Plan (décret n° 2.24.1009). Les 12 valeurs régionales ont été relevées le 21/07/2026 dans les documents officiels du HCP. Contrôle effectué : la somme des 12 régions retombe exactement sur le total national publié (36 828 330 habitants).",
+    "description": "Population légale du Royaume du Maroc au 1er septembre 2024, répartie par région, publiée par le Haut-Commissariat au Plan (décret n° 2.24.1009). Les 12 valeurs régionales ont été relevées le 21/07/2026 dans les documents officiels du HCP. Contrôle effectué : la somme des 12 régions retombe exactement sur le total national publié (36 828 330 habitants).",
     "indicateursCouverts": [
       "Population légale par région (RGPH 2024)"
     ],
-    "limites": "Donnée STRUCTURELLE (démographique), pas un indicateur économique : elle sert de cadrage territorial et alimente le graphique « population par région » de la page Territoires, en attendant les indicateurs économiques régionaux du binôme data (rendement céréalier, emploi industriel, capacité électrique…)."
+    "limites": "Donnée STRUCTURELLE (démographique), pas un indicateur économique : elle sert de cadrage territorial et alimente le graphique « population par région » de la page Territoires, en attendant les indicateurs économiques régionaux du binôme data (rendement céréalier, emploi industriel, capacité électrique…)."
   },
   {
     "source": "Collecte interne DIGIUP (data/clean/indicateurs_long.csv)",
@@ -49,6 +49,6 @@
       "NV.AGR.TOTL.ZS",
       "NV.IND.TOTL.ZS"
     ],
-    "limites": "Même origine Banque Mondiale que la première source ; les valeurs 2024-2025 sont des estimations récentes susceptibles d'être révisées."
+    "limites": "Même origine Banque Mondiale que la première source ; les valeurs 2024–2025 sont des estimations récentes susceptibles d’être révisées."
   }
 ]

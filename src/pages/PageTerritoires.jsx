@@ -37,8 +37,8 @@ function PageTerritoires() {
           <h1>Territoires</h1>
           <p className="hero__description">
             Une moyenne nationale additionne des régions très différentes. Les 12
-            régions du découpage de 2015 sont l'échelle à laquelle se décident les
-            plans agricoles et industriels : c'est donc l'échelle à laquelle il
+            régions du découpage de 2015 sont l’échelle à laquelle se décident les
+            plans agricoles et industriels : c’est donc l’échelle à laquelle il
             faut aussi pouvoir lire les indicateurs.
           </p>
         </div>
@@ -52,10 +52,10 @@ function PageTerritoires() {
           <p className="section-chapitre__intro">
             Pour montrer la dimension territoriale sur des chiffres réels, on
             affiche ici la population légale de chaque région (recensement 2024).
-            Chaque barre est proportionnelle à la population : Casablanca-Settat
-            pèse à elle seule près d'un cinquième du pays. Les indicateurs
+            Chaque barre est proportionnelle à la population : Casablanca-Settat
+            pèse à elle seule près d’un cinquième du pays. Les indicateurs
             économiques régionaux (rendement céréalier, emploi industriel,
-            capacité électrique…) viendront s'afficher de la même façon dès leur
+            capacité électrique…) viendront s’afficher de la même façon dès leur
             collecte.
           </p>
 
