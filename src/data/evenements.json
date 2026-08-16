@@ -2,20 +2,20 @@
   {
     "secteur": "automobile",
     "annee": 2012,
-    "libelle": "Ouverture usine Renault Tanger",
-    "detail": "Renault-Nissan met en service à Melloussa, près de Tanger, la plus grande usine automobile d’Afrique."
+    "libelle": "Inauguration de l’usine Renault de Tanger",
+    "detail": "Le 9 février 2012, Renault inaugure son usine de Melloussa, dans la zone franche de Tanger. Capacité initiale : 170 000 véhicules par an, portée à 340 000 en 2014 avec la seconde ligne. Source : Renault Group, fiche du site de Tanger."
   },
   {
     "secteur": "automobile",
     "annee": 2016,
-    "libelle": "Accord industriel Boeing",
-    "detail": "Boeing signe avec le Maroc un accord d’écosystème aéronautique, aux côtés de Safran et de la zone Midparc."
+    "libelle": "Accord aéronautique Boeing–Maroc",
+    "detail": "Le 27 septembre 2016 à Tanger, le ministère marocain de l’Industrie et Boeing signent un mémorandum d’entente : implantation de 120 fournisseurs, 8 700 emplois qualifiés et un milliard de dollars d’exportations annuelles visés. Source : ministère de l’Industrie et du Commerce."
   },
   {
     "secteur": "automobile",
     "annee": 2019,
-    "libelle": "Ouverture usine PSA Kénitra",
-    "detail": "Le groupe PSA (devenu Stellantis) inaugure son usine de Kénitra en juin 2019."
+    "libelle": "Inauguration de l’usine PSA de Kénitra",
+    "detail": "En juin 2019, le groupe PSA — intégré à Stellantis en 2021 — inaugure son usine de Kénitra. Capacité doublée depuis à 200 000 véhicules par an. Source : Stellantis."
   },
   {
     "secteur": "automobile",
@@ -26,62 +26,62 @@
   {
     "secteur": "ble",
     "annee": 1995,
-    "libelle": "Sécheresse majeure",
-    "detail": "Campagne agricole catastrophique : la production céréalière tombe à 1,8 million de tonnes."
+    "libelle": "La plus basse campagne de la série",
+    "detail": "1,78 million de tonnes, soit 28 % de la moyenne 1990-2024 et une chute de 82 % par rapport à 1994. Aucune campagne de la série n’est plus basse."
   },
   {
     "secteur": "ble",
     "annee": 2016,
-    "libelle": "Sécheresse sévère",
-    "detail": "Après un hiver très sec, la récolte céréalière chute à 3,6 millions de tonnes."
+    "libelle": "Campagne à 3,56 Mt",
+    "detail": "56 % de la moyenne 1990-2024, en recul de 70 % par rapport à 2015 : la plus basse campagne depuis 2007."
   },
   {
     "secteur": "ble",
     "annee": 2020,
-    "libelle": "Sécheresse et COVID-19",
-    "detail": "Année sèche (3,3 millions de tonnes de céréales) doublée de la crise sanitaire."
+    "libelle": "Campagne à 3,33 Mt",
+    "detail": "52 % de la moyenne 1990-2024, en recul de 37 % par rapport à 2019 : la plus basse campagne depuis 2007."
   },
   {
     "secteur": "ble",
     "annee": 2022,
-    "libelle": "Sécheresse et choc ukrainien",
-    "detail": "Récolte très basse (3,5 millions de tonnes) alors que la guerre en Ukraine fait flamber le prix mondial du blé."
+    "libelle": "Campagne à 3,51 Mt",
+    "detail": "55 % de la moyenne 1990-2024, en recul de 66 % par rapport à 2021 : la plus basse campagne depuis 2020."
   },
   {
     "secteur": "ble",
     "annee": 2024,
-    "libelle": "Sécheresse persistante",
-    "detail": "Nouvelle campagne sèche : la production céréalière retombe à 3,2 millions de tonnes."
+    "libelle": "Campagne à 3,21 Mt",
+    "detail": "50 % de la moyenne 1990-2024, en recul de 43 % par rapport à 2023 : la plus basse campagne depuis 2007."
   },
   {
     "secteur": "energie",
     "annee": 2015,
-    "libelle": "Fermeture raffinerie Samir",
-    "detail": "L’unique raffinerie du pays, à Mohammedia, cesse son activité : le Maroc importe depuis l’essentiel de ses produits raffinés."
+    "libelle": "Arrêt de la raffinerie Samir",
+    "detail": "En août 2015, la Samir, unique raffinerie du pays, à Mohammedia, cesse sa production ; elle est mise en liquidation judiciaire le 21 mars 2016. Depuis, le Maroc importe la totalité de ses produits pétroliers raffinés. Source : Arab Reform Initiative (2024)."
   },
   {
     "secteur": "energie",
     "annee": 2016,
-    "libelle": "Mise en service Noor I",
-    "detail": "La centrale solaire à concentration Noor I (160 MW) entre en service à Ouarzazate en février 2016."
+    "libelle": "Mise en service de Noor Ouarzazate I",
+    "detail": "En février 2016, la centrale solaire à concentration Noor Ouarzazate I (160 MW, cylindro-parabolique, jusqu’à trois heures de stockage) entre en service. Source : Masen."
   },
   {
     "secteur": "energie",
     "annee": 2021,
-    "libelle": "Fermeture gazoduc GME",
-    "detail": "L’Algérie ferme le gazoduc Maghreb-Europe fin octobre 2021, privant le Maroc du gaz algérien."
+    "libelle": "Fin du contrat du gazoduc Maghreb-Europe",
+    "detail": "Le 31 octobre 2021, à l’expiration du contrat de vingt-cinq ans, la convention du gazoduc Maghreb-Europe n’est pas renouvelée : les livraisons de gaz algérien cessent. Le tronçon marocain est réutilisé en flux inversé depuis l’Espagne à partir de 2022. Source : Anadolu (2021), Middle East Eye (2022)."
   },
   {
     "secteur": "energie",
     "annee": 2022,
-    "libelle": "Crise énergétique mondiale",
-    "detail": "L’invasion de l’Ukraine fait flamber les prix du gaz et des produits pétroliers importés."
+    "libelle": "Flambée mondiale des prix de l’énergie",
+    "detail": "En 2022, la plus forte hausse des prix de l’énergie depuis 1973 : le Brent atteint 100 dollars le baril en moyenne, le gaz naturel européen double et le charbon progresse de 80 %. Source : Banque Mondiale (2022)."
   },
   {
     "secteur": "energie",
     "annee": 2030,
-    "libelle": "Objectif 52 % renouvelable",
-    "detail": "Cible officielle : 52 % de la capacité électrique installée d’origine renouvelable à l’horizon 2030."
+    "libelle": "Objectif : plus de 52 % de puissance renouvelable",
+    "detail": "Cible officielle : porter à plus de 52 % la part des énergies renouvelables dans la puissance électrique installée à l’horizon 2030. Source : ministère de la Transition énergétique et du Développement durable."
   },
   {
     "secteur": "contexte",
