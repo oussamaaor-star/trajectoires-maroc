@@ -34,12 +34,12 @@ export const CONTENU_SECTEURS = {
     introVue:
       'Une campagne sèche en 2024 : 3,21 millions de tonnes de céréales, en baisse de 43 % sur un an, pour un rendement de 1 240 kg par hectare.',
     introTrajectoire:
-      'La récolte oscille entre 1,8 et 11,7 millions de tonnes selon la pluviométrie. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : dépendant de la pluie, le blé est trop imprévisible pour qu’un prolongement de tendance ait un sens.',
+      'La récolte oscille entre 1,78 et 11,69 millions de tonnes d’une campagne à l’autre. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : sa dispersion atteint la moitié de sa moyenne, et une série de cette nature n’a pas de tendance à prolonger.',
     trajectoire: {
       type: 'barres', // magnitude annuelle très volatile → barres, pas courbe
       serieId: 'prod_cereales',
-      projection: false, // série pilotée par la pluviométrie : projeter n'aurait aucun sens
-      titre: 'La production céréalière varie du simple au sextuple selon la pluviométrie',
+      projection: false, // dispersion égale à la moitié de la moyenne : aucune tendance à prolonger
+      titre: 'La production céréalière varie du simple au sextuple d’une campagne à l’autre',
       sousTitre: 'Millions de tonnes — observé 1990–2024',
     },
   },
