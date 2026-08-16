@@ -157,18 +157,16 @@ function CourbeTrajectoire({ serie, etiquette, projection = [] }) {
         {etiquette && (
           <text
             className="etiquette-serie"
-            x={xPour(dernier.annee) + (projection.length > 0 ? -10 : 10)}
+            x={VUE.x1 + 10}
             y={yPour(dernier.valeur) - 3}
-            textAnchor={projection.length > 0 ? 'end' : 'start'}
           >
             {etiquette}
           </text>
         )}
         <text
           className="etiquette-valeur"
-          x={xPour(dernier.annee) + (projection.length > 0 ? -10 : 10)}
+          x={VUE.x1 + 10}
           y={yPour(dernier.valeur) + (etiquette ? 12 : 4)}
-          textAnchor={projection.length > 0 ? 'end' : 'start'}
         >
           {formate(dernier.valeur, serie.unite)}
         </text>
