@@ -17,7 +17,7 @@ export const CONTENU_SECTEURS = {
     introVue:
       "L’automobile est devenue le premier poste d’exportation du pays : 59,1 milliards de dirhams de voitures exportées en 2025, après un record de 68 milliards en 2024, et près de 83 % d’exportations manufacturées.",
     introTrajectoire:
-      "Les données douanières remontent à 1998, quand le Maroc n’exportait pratiquement aucune voiture. Deux ouvertures d’usines jalonnent la période et sont datées sur la courbe : Renault à Melloussa en 2012, PSA à Kénitra en 2019.",
+      "Les données douanières remontent à 1998, quand le Maroc n’exportait pratiquement aucune voiture. Deux ouvertures d’usines jalonnent la période ; elles sont datées sous le graphique : Renault à Melloussa en 2012, PSA à Kénitra en 2019.",
     /* la série « phare » du secteur, affichée en grand + projetée sur 2 ans */
     trajectoire: {
       type: 'courbe',

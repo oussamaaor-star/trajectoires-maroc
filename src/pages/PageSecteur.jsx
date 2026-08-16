@@ -53,7 +53,15 @@ function PageSecteur() {
           <p className="hero__surtitre">Secteur</p>
           <h1>{secteur.nom}</h1>
           <p className="hero__description">{secteur.resume}</p>
-          <span className="badge">Données {periodeDesSeries(seriesSecteur)}</span>
+          {/* CE QUE COUVRE LA PLAGE, ET DE QUOI. « Données 1990–2025 » se lisait
+              deux écrans au-dessus d'un graphique sous-titré « observé 1998–2025 » :
+              le lecteur y voyait une contradiction. Il n'y en avait pas — la plage
+              est celle de TOUTES les séries du secteur, dont la plus ancienne
+              (part de l'industrie dans le PIB) remonte à 1990. Le badge le dit
+              maintenant lui-même, en annonçant leur nombre. */}
+          <span className="badge">
+            {seriesSecteur.length} séries · {periodeDesSeries(seriesSecteur)}
+          </span>
         </div>
       </header>
 

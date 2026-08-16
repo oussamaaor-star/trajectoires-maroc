@@ -160,8 +160,18 @@ button { font-family: inherit; }
 /* Cartes secteur de l'accueil (3 colonnes) */
 .grille-cartes { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--esp-4); }
 
-/* Cartes KPI (s'adapte toute seule au nombre de cartes) */
-.grille-kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--esp-3); }
+/* CINQ CARTES, ET 5 EST UN NOMBRE PREMIER : toute grille de 2, 3 ou 4 colonnes
+   laisse une dernière rangée incomplète. Le problème n'est pas la rangée
+   incomplète — c'est UNE carte seule à côté de trois trous, ce que donnait
+   `auto-fit` avec un minimum de 210 px (4 colonnes de 256 px sur un écran
+   d'ordinateur, puis la cinquième toute seule). On tient donc 3 colonnes de
+   l'ordinateur à la tablette : « 3 + 2 » se lit comme une grille voulue, et
+   les cartes y gagnent en largeur (347 px au lieu de 256 px à 1440 px).
+   La page d'accueil, qui n'en porte que trois, garde exactement son affichage
+   d'avant à chaque largeur. */
+.grille-kpi { display: grid; grid-template-columns: 1fr; gap: var(--esp-3); }
+@media (min-width: 560px) { .grille-kpi { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 760px) { .grille-kpi { grid-template-columns: repeat(3, 1fr); } }
 
 /* === 5. Composants UI ===================================================== */
 
@@ -268,7 +278,21 @@ button { font-family: inherit; }
   box-shadow: var(--ombre);
 }
 
-.carte-kpi__libelle { font-size: var(--taille-petite); font-weight: 500; color: var(--encre-secondaire); margin-bottom: var(--esp-1); }
+/* LE LIBELLÉ RÉSERVE DEUX LIGNES, MÊME S'IL N'EN OCCUPE QU'UNE. Sans ce
+   plancher, deux cartes voisines dont l'une a un libellé plus long alignent
+   leurs gros chiffres à des hauteurs différentes — « 82,9 % » descendait d'une
+   ligne sous « 25,2 % ». C'est une hauteur en NOMBRE DE LIGNES (2em à
+   interligne 1), pas en pixels : elle suit la taille de police du lecteur.
+   Deux lignes suffisent ici — le plus long libellé, « Produits manufacturés
+   dans les exportations · 2024 », en occupe deux à toutes les largeurs. */
+.carte-kpi__libelle {
+  font-size: var(--taille-petite);
+  font-weight: 500;
+  color: var(--encre-secondaire);
+  margin-bottom: var(--esp-1);
+  line-height: 1.35;
+  min-height: 2.7em;   /* 2 lignes × 1,35 */
+}
 
 /* Gros chiffre : chiffres proportionnels (pas tabular-nums, qui écarte trop
    les chiffres à cette taille — règle du skill dataviz). */
