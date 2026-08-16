@@ -542,6 +542,20 @@ code { overflow-wrap: anywhere; }
 /* Valeur affichée près d'un point clé (sélective : jamais sur tous les points) */
 .etiquette-valeur { font-size: 12px; font-weight: 600; fill: var(--encre-secondaire); font-variant-numeric: tabular-nums; }
 
+/* UN HALO BLANC SOUS CES DEUX ÉTIQUETTES. Elles ne sont pas posées sur du vide :
+   la nappe sous la courbe, une graduation, parfois la courbe elle-même passent
+   dessous. `paint-order: stroke` dessine le CONTOUR avant le remplissage — le
+   trait blanc reste donc DERRIÈRE la lettre et l'entoure, au lieu de l'épaissir.
+   Non reconnu par un très vieux navigateur : le texte s'affiche alors sans halo,
+   c'est-à-dire comme avant. */
+.etiquette-serie,
+.etiquette-valeur {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
 /* Barres (histogrammes) : partent toujours de zéro, ≤ 24px d'épaisseur */
 .barre-serie { fill: var(--couleur-serie, var(--accent)); }
 

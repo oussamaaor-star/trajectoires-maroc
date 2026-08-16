@@ -144,17 +144,31 @@ function CourbeTrajectoire({ serie, etiquette, projection = [] }) {
             une étiquette collée au bord se retrouvait à hauteur du dernier
             point prévu tout en affichant la valeur observée : elle semblait
             étiqueter la prévision. Sans projection, le dernier point réel EST
-            au bord — l'affichage ne change donc pas. */}
+            au bord — l'affichage ne change donc pas.
+
+            ET ELLE PASSE À GAUCHE DÈS QU'IL Y A UNE PROJECTION. Ancrer sur le
+            dernier point réel ne suffisait pas : l'espace à DROITE de ce point
+            appartient désormais au trait pointillé, à ses points creux et à la
+            bande de confiance. « Voitures / 59,11 Md DH » s'écrivait par-dessus
+            les trois (mesuré : l'étiquette occupe 566 → 617 dans le repère,
+            la projection commence à 556). On la pose donc du côté de la courbe
+            OBSERVÉE, qui est ce qu'elle désigne. */}
         <circle className="point-donnee" cx={xPour(dernier.annee)} cy={yPour(dernier.valeur)} r="4" />
         {etiquette && (
-          <text className="etiquette-serie" x={xPour(dernier.annee) + 10} y={yPour(dernier.valeur) - 3}>
+          <text
+            className="etiquette-serie"
+            x={xPour(dernier.annee) + (projection.length > 0 ? -10 : 10)}
+            y={yPour(dernier.valeur) - 3}
+            textAnchor={projection.length > 0 ? 'end' : 'start'}
+          >
             {etiquette}
           </text>
         )}
         <text
           className="etiquette-valeur"
-          x={xPour(dernier.annee) + 10}
+          x={xPour(dernier.annee) + (projection.length > 0 ? -10 : 10)}
           y={yPour(dernier.valeur) + (etiquette ? 12 : 4)}
+          textAnchor={projection.length > 0 ? 'end' : 'start'}
         >
           {formate(dernier.valeur, serie.unite)}
         </text>

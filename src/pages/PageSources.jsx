@@ -86,13 +86,15 @@ function PageSources() {
             dans ce décompte de séries annuelles.
           </p>
           <p>
-            <strong>Une exception, et elle est signalée partout où elle
+            <strong>Une exception, et elle est signalée là où elle
             apparaît :</strong> les prévisions ne sortent d’aucun modèle. Ce
             sont des valeurs écrites à la main pour développer l’affichage, en
-            attendant les modèles du binôme data. La plateforme l’annonce
-            au-dessus du graphique concerné, dans la vue « Données » et dans
-            l’export CSV — et l’avertissement disparaîtra de lui-même le jour
-            où un vrai modèle sera livré.
+            attendant les modèles du binôme data. La plateforme l’annonce{' '}
+            <strong>sous le graphique concerné</strong>, le seul endroit où
+            ces valeurs sont tracées : la vue « Données » et l’export CSV, eux,
+            ne contiennent que les valeurs observées — aucune année projetée
+            n’y figure. L’avertissement disparaîtra de lui-même le jour où un
+            vrai modèle sera livré.
           </p>
         </div>
 
