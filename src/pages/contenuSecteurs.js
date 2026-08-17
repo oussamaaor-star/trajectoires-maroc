@@ -15,7 +15,7 @@ export const CHAPITRES = [
 export const CONTENU_SECTEURS = {
   automobile: {
     introVue:
-      "Les exportations de voitures atteignent 59,1 milliards de dirhams de voitures exportées en 2025, après un record de 68 milliards en 2024, et près de 83 % d’exportations manufacturées.",
+      "Les exportations de voitures de tourisme atteignent 59,1 milliards de dirhams en 2025, après un record de 68 milliards en 2024. Les produits manufacturés pèsent près de 83 % des exportations.",
     introTrajectoire:
       "Les données douanières remontent à 1998, quand le Maroc n’exportait pratiquement aucune voiture. Deux ouvertures d’usines jalonnent la période ; elles sont datées sous le graphique : Renault à Melloussa en 2012, PSA à Kénitra en 2019.",
     /* la série « phare » du secteur, affichée en grand + projetée sur 2 ans */
