@@ -15,7 +15,7 @@ export const CHAPITRES = [
 export const CONTENU_SECTEURS = {
   automobile: {
     introVue:
-      "L’automobile est devenue le premier poste d’exportation du pays : 59,1 milliards de dirhams de voitures exportées en 2025, après un record de 68 milliards en 2024, et près de 83 % d’exportations manufacturées.",
+      "Les exportations de voitures atteignent 59,1 milliards de dirhams de voitures exportées en 2025, après un record de 68 milliards en 2024, et près de 83 % d’exportations manufacturées.",
     introTrajectoire:
       "Les données douanières remontent à 1998, quand le Maroc n’exportait pratiquement aucune voiture. Deux ouvertures d’usines jalonnent la période ; elles sont datées sous le graphique : Renault à Melloussa en 2012, PSA à Kénitra en 2019.",
     /* la série « phare » du secteur, affichée en grand + projetée sur 2 ans */
@@ -34,7 +34,7 @@ export const CONTENU_SECTEURS = {
     introVue:
       'Une campagne sèche en 2024 : 3,21 millions de tonnes de céréales, en baisse de 43 % sur un an, pour un rendement de 1 240 kg par hectare.',
     introTrajectoire:
-      'La récolte oscille entre 1,78 et 11,69 millions de tonnes d’une campagne à l’autre. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : sa dispersion atteint la moitié de sa moyenne, et une série de cette nature n’a pas de tendance à prolonger.',
+      'La récolte oscille entre 1,78 et 11,69 millions de tonnes d’une campagne à l’autre. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : sa dispersion atteint 46 % de sa moyenne, et une série de cette nature n’a pas de tendance à prolonger.',
     trajectoire: {
       type: 'barres', // magnitude annuelle très volatile → barres, pas courbe
       serieId: 'prod_cereales',
@@ -47,8 +47,12 @@ export const CONTENU_SECTEURS = {
   energie: {
     introVue:
       "Le Maroc a importé 93,6 % de l’énergie utilisée en 2023 ; sa dépendance énergétique reste supérieure à 90 % depuis 2009.",
+    // « Deux ruptures L’ENTRETIENNENT » : c’était une cause affirmée, sur la
+    // page même où la plateforme dit ne jamais en affirmer. Les deux faits sont
+    // datés et vérifiables ; le lien entre eux et la courbe, lui, n’est démontré
+    // par aucune donnée affichée ici. On juxtapose, comme partout ailleurs.
     introTrajectoire:
-      "La dépendance énergétique reste très élevée. Deux ruptures l’entretiennent : la fermeture de la raffinerie Samir (2015) et celle du gazoduc Maghreb-Europe (2021).",
+      "La dépendance énergétique reste très élevée. Deux ruptures sont datées sur la même période : la fermeture de la raffinerie Samir (2015) et celle du gazoduc Maghreb-Europe (2021).",
     trajectoire: {
       type: 'courbe',
       serieId: 'dependance_energetique',

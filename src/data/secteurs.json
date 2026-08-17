@@ -58,7 +58,7 @@
     "nom": "Agriculture — blé & céréales",
     "couleurToken": "ble",
     "resume": "La filière céréalière, dominée par le blé, est la plus dispersée des trois : la production nationale oscille entre 1,78 et 11,69 millions de tonnes selon les années. Le Maroc complète chaque récolte par des importations, ce qui l’expose aux chocs sur les prix mondiaux, comme lors de la guerre en Ukraine en 2022.",
-    "resumeCourt": "La plus dispersée des trois filières : la production nationale oscille entre 1,78 et 11,69 millions de tonnes selon les années.",
+    "resumeCourt": "La production nationale oscille entre 1,78 et 11,69 millions de tonnes selon les années.",
     "kpis": [
       {
         "label": "Production céréalière",

@@ -1,7 +1,11 @@
 import { formateNombre, uniteCourte, formateVariation, espaceUnite } from '../utils/formatage'
 
 /* Carte KPI : un libellé, un gros chiffre + unité, et la variation par rapport
-   à l'année précédente (verte si hausse, rouge si baisse).
+   à l'année précédente. La couleur ne JUGE PAS : elle dit le sens, pas
+   l'approbation. Le vert et le rouge d'origine faisaient passer une baisse
+   du chômage, de l'inflation ou de la dépendance énergétique pour une
+   mauvaise nouvelle ; la plateforme n'a aucun moyen de savoir dans quel
+   sens une série est souhaitable. Voir --hausse / --baisse dans design.css.
    Composant purement visuel : il reçoit tout en props, ne calcule rien.
    uniteVariation : « % » pour une variation relative (KPI des secteurs),
    « pt » pour un écart en points de pourcentage (contexte national). */
