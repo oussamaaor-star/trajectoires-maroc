@@ -67,7 +67,7 @@ function PageSecteur() {
 
       <MenuAncres chapitres={CHAPITRES} />
 
-      <main className="conteneur">
+      <main className="conteneur" id="contenu" tabIndex={-1}>
         {/* 01 — les KPI du secteur */}
         <section className="section-chapitre" id={chapVue.id}>
           <h2>

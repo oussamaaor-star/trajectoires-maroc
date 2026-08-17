@@ -38,7 +38,7 @@ function PageIntrouvable() {
         </div>
       </header>
 
-      <main className="conteneur">
+      <main className="conteneur" id="contenu" tabIndex={-1}>
         <section className="section-chapitre">
           <h2>Où aller</h2>
           <p className="section-chapitre__intro">

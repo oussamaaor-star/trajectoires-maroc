@@ -44,7 +44,7 @@ function PageTerritoires() {
         </div>
       </header>
 
-      <main className="conteneur">
+      <main className="conteneur" id="contenu" tabIndex={-1}>
         <section className="section-chapitre">
           <h2>
             <span className="section-chapitre__numero">01</span> Population par région

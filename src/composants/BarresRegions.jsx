@@ -76,6 +76,13 @@ function BarresRegions({ indicateur, regions }) {
       ) : (
         <div className="defilement-tableau defilement-tableau--etroit">
           <table className="tableau-donnees">
+            {/* Même principe que dans TableauDonnees : la légende dit ce que
+                contient le tableau, et elle est construite à partir de
+                l'indicateur affiché plutôt qu'écrite à la main. */}
+            <caption className="sr-only">
+              {indicateur.nom} par région ({indicateur.unite}) — les douze
+              régions du Maroc, de la plus élevée à la plus faible.
+            </caption>
             <thead>
               <tr>
                 <th scope="col">Région</th>

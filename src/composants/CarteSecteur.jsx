@@ -12,7 +12,13 @@ function CarteSecteur({ secteur, serieSparkline }) {
   return (
     <Link to={`/secteur/${secteur.id}`} className="carte-secteur" data-secteur={secteur.id}>
       <h3>{secteur.nom}</h3>
-      <p className="carte-secteur__resume">{secteur.resume}</p>
+      {/* Le résumé COURT, écrit pour la carte. Le champ `resume`, lui, fait
+          trois à quatre cents caractères et sert au hero de la page secteur.
+          La carte l'affichait aussi, rogné à trois lignes par le CSS : douze
+          lignes de texte étaient donc coupées en pleine phrase (mesuré : 259 px
+          de contenu ramenés à 71 px), et la coupure se lisait comme un bug.
+          Une phrase écrite pour tenir vaut mieux qu'un paragraphe tronqué. */}
+      <p className="carte-secteur__resume">{secteur.resumeCourt}</p>
       {serieSparkline && <MiniSparkline points={serieSparkline.points} />}
       <div className="carte-secteur__chiffre">
         {formateNombre(kpi.valeur)}

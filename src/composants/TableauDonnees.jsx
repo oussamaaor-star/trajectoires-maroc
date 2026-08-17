@@ -10,6 +10,17 @@ function TableauDonnees({ series }) {
 
   return (
     <table className="tableau-donnees">
+      {/* La légende annonce le contenu du tableau à un lecteur d'écran AVANT
+          qu'il n'en lise les cellules. Elle est calculée, pas écrite : elle
+          nomme les séries réellement affichées et la période réellement
+          couverte, donc elle ne peut pas mentir quand les données changent.
+          Visuellement inutile ici — le titre du graphique est juste au-dessus —
+          d'où la classe sr-only. */}
+      <caption className="sr-only">
+        {series.map((serie) => serie.nom).join(', ')} — valeurs annuelles de{' '}
+        {annees[annees.length - 1]} à {annees[0]}, les plus récentes en premier.
+        Un tiret signale une année non publiée.
+      </caption>
       <thead>
         <tr>
           <th scope="col">Année</th>

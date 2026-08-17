@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page introuvable — Trajectoires économiques du Maroc</title>
+
+    <!--
+      CETTE PAGE EST SERVIE AVEC LE CODE HTTP 404, ce que la page React ne
+      pouvait pas faire.
+
+      L'application affiche déjà un écran « Cette page n'existe pas » quand on
+      clique un lien mort À L'INTÉRIEUR du site : c'est `PageIntrouvable.jsx`,
+      et il reste utile pour ce cas-là. Mais quand l'adresse est tapée ou
+      collée dans la barre du navigateur, c'est l'hébergeur qui répond en
+      premier, et lui répondait « 200 tout va bien » avant d'envoyer
+      l'application. Le visiteur lisait le bon message, la machine lisait le
+      mauvais code.
+
+      Le fichier est volontairement autonome : pas de JavaScript, pas de
+      feuille de style extérieure. Une page d'erreur doit s'afficher même
+      quand le reste ne se charge pas. Les couleurs et la police sont
+      recopiées de `design.css` pour que le visiteur reste chez lui.
+    -->
+
+    <style>
+      :root {
+        --encre: #1a2b3c;
+        --encre-secondaire: #5a6472;
+        --encre-douce: #686f7b;
+        --fond: #f6f7f4;
+        --surface: #ffffff;
+        --bordure: #e3e6e2;
+        --marque: #00826b;
+        --marque-sombre: #00614f;
+        --police: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--fond);
+        color: var(--encre);
+        font-family: var(--police);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .conteneur {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4rem;
+      }
+
+      .surtitre {
+        margin: 0 0 0.5rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--marque-sombre);
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.6rem, 5vw, 2.25rem);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      .description {
+        margin: 0 0 2.5rem;
+        max-width: 34rem;
+        color: var(--encre-secondaire);
+      }
+
+      h2 {
+        margin: 0 0 0.25rem;
+        font-size: 1.125rem;
+      }
+
+      .intro {
+        margin: 0 0 1rem;
+        color: var(--encre-secondaire);
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: var(--surface);
+        border: 1px solid var(--bordure);
+        border-radius: 0.5rem;
+      }
+
+      li + li { border-top: 1px solid var(--bordure); }
+
+      /* La zone cliquable fait toute la largeur et au moins 44 px de haut :
+         une page d'erreur se lit souvent sur un téléphone, au pouce. */
+      li a {
+        display: block;
+        padding: 0.85rem 1rem;
+        min-height: 44px;
+        color: var(--marque-sombre);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      li a:hover,
+      li a:focus-visible { background: #e1f2ed; text-decoration: underline; }
+
+      li a:focus-visible { outline: 2px solid var(--marque); outline-offset: -2px; }
+
+      li a span {
+        display: block;
+        font-weight: 400;
+        color: var(--encre-secondaire);
+        font-size: 0.9375rem;
+      }
+
+      .pied {
+        margin: 2.5rem 0 0;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--bordure);
+        font-size: 0.875rem;
+        color: var(--encre-douce);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="conteneur">
+      <p class="surtitre">Erreur 404</p>
+      <h1>Cette page n’existe pas</h1>
+      <p class="description">
+        L’adresse demandée ne correspond à aucune page de la plateforme.
+        Elle a peut-être été mal recopiée.
+      </p>
+
+      <h2>Où aller</h2>
+      <p class="intro">La plateforme compte six pages. Les voici toutes :</p>
+
+      <ul>
+        <li><a href="/">Accueil <span>les trois secteurs suivis</span></a></li>
+        <li><a href="/secteur/automobile">Industrie automobile &amp; aéronautique</a></li>
+        <li><a href="/secteur/ble">Agriculture — blé &amp; céréales</a></li>
+        <li><a href="/secteur/energie">Énergie — pétrole &amp; gaz</a></li>
+        <li><a href="/territoires">Territoires <span>les douze régions</span></a></li>
+        <li><a href="/sources">Sources <span>d’où viennent les chiffres</span></a></li>
+      </ul>
+
+      <p class="pied">
+        Trajectoires économiques du Maroc — plateforme de démonstration réalisée
+        pendant un stage chez DIGIUP.
+      </p>
+    </div>
+  </body>
+</html>

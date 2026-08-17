@@ -194,3 +194,42 @@ Trois fichiers, tous simples et rapides (`node:test`) :
 Les tests lisent les vrais JSON grâce au petit hook `tests/support/json-hook.mjs`
 (il ajoute l'attribut `{ type: 'json' }` que Node réclame, sans modifier le code
 de l'application).
+
+## 11. La mise en ligne, et pourquoi la configuration liste les adresses
+
+Deux commandes suffisent (`npm run build`, puis un déploiement Vercel) et la
+configuration tient dans `vercel.json`. Elle mérite une explication, parce
+qu'elle ne ressemble pas à celle qu'on trouve partout.
+
+Une application à page unique n'a **qu'un seul fichier HTML**. Ouvrir
+directement `/sources` dans la barre d'adresse renverrait donc une erreur :
+aucun fichier de ce nom n'existe sur le serveur. D'où la règle de réécriture,
+qui dit à l'hébergeur « sers `index.html`, l'application se chargera de lire
+l'adresse ».
+
+La formule habituelle réécrit **toutes** les adresses (`/(.*)`). Elle
+fonctionne, et elle a un défaut qu'on ne voit pas à l'écran : une adresse
+inventée comme `/nimportequoi` reçoit alors le code **HTTP 200 « tout va
+bien »**, et l'application affiche par-dessus son écran « Cette page n'existe
+pas ». L'humain lit la bonne chose ; la machine — moteur de recherche,
+vérificateur de liens, outil de surveillance — lit exactement l'inverse, et
+la page est indexable.
+
+`vercel.json` ne réécrit donc que les **six adresses que l'application sait
+servir**. Les trois secteurs sont nommés un par un, sinon `/secteur/nimportequoi`
+passerait encore. Tout le reste ne correspond à rien et tombe sur
+`public/404.html`, servi avec le vrai code 404.
+
+| Adresse demandée | Code HTTP | Ce qui s'affiche |
+|---|---|---|
+| `/`, `/territoires`, `/sources` | 200 | l'application |
+| `/secteur/automobile`, `/secteur/ble`, `/secteur/energie` | 200 | l'application |
+| `/secteur/inexistant`, `/nimportequoi` | **404** | `404.html` |
+
+`src/pages/PageIntrouvable.jsx` reste utile et n'est pas remplacé : il traite
+le cas d'un lien mort cliqué **à l'intérieur** du site, où le serveur n'est
+jamais consulté. `404.html`, lui, traite le cas d'une adresse tapée ou collée.
+Le premier est du ressort de l'application, le second de l'hébergeur.
+
+C'est la même règle que pour les données : **une adresse qui n'existe pas est
+un trou, et on ne comble pas un trou en silence.**

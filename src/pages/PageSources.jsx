@@ -55,7 +55,7 @@ function PageSources() {
         </div>
       </header>
 
-      <main className="conteneur">
+      <main className="conteneur" id="contenu" tabIndex={-1}>
         {/* h2 et non h3 : après le h1 de la page, sauter directement au niveau 3
             casse le plan du document. Un lecteur d'écran qui navigue de titre en
             titre entend alors une sous-section sans section. */}
@@ -75,7 +75,11 @@ function PageSources() {
                 <strong>
                   {bloc.series} série{bloc.series > 1 ? 's' : ''}
                 </strong>{' '}
-                — {bloc.nom} (<span dir="ltr">{bloc.debut}–{bloc.fin}</span>)
+                — {bloc.nom} (
+                <span dir="ltr" className="plage-annees">
+                  {bloc.debut}–{bloc.fin}
+                </span>
+                )
               </span>
             ))}
             . Les séries douanières ont été transmises le 02/08/2026 par le

@@ -443,15 +443,14 @@ button { font-family: inherit; }
 
 /* --- Ajouts développeur (classes absentes de la livraison designer) ------- */
 
-/* Résumé des cartes secteur : clampé à 3 lignes (les résumés complets
-   sont affichés dans le hero de chaque page secteur).
-   NB : on n'utilise QUE le mécanisme -webkit- (le mélanger avec la
-   propriété standard line-clamp crée un double clamp bugué dans Chrome) */
+/* Résumé des cartes secteur.
+   Il n'y a plus de rognage : la carte affiche `resumeCourt`, une phrase
+   écrite pour tenir. Auparavant elle affichait le résumé complet coupé à
+   trois lignes par -webkit-line-clamp, ce qui masquait jusqu'à douze lignes
+   et coupait la dernière en pleine phrase — on lisait « Les exportatio… ».
+   Un texte tronqué par l'interface ressemble toujours à une panne. */
 .carte-secteur__resume {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  margin: 0;
 }
 
 /* Badge posé sous la description du hero (wireframe page secteur, §4) */
@@ -478,7 +477,18 @@ button { font-family: inherit; }
    deviner. */
 .liste-secours { margin: var(--esp-3) 0 0; padding-inline-start: var(--esp-4); }
 .liste-secours li { margin-bottom: var(--esp-2); color: var(--encre-secondaire); }
-.liste-secours a { font-weight: 600; }
+/* Ces liens sont la SORTIE de la page d'erreur : ils sont souvent touchés au
+   pouce, sur un téléphone, par quelqu'un qui vient déjà de se tromper
+   d'adresse. Ils mesuraient 18 à 20 px de haut. La zone cliquable est portée
+   à 24 px — le seuil « cible de taille minimale » de WCAG 2.2 — sans changer
+   l'aspect du texte : c'est le remplissage vertical qui grandit, pas la
+   police. */
+.liste-secours a {
+  font-weight: 600;
+  display: inline-block;
+  padding-block: 0.25rem;
+  min-height: 24px;
+}
 .carte-source p { margin-bottom: var(--esp-2); font-size: 0.92rem; color: var(--encre-secondaire); }
 .carte-source__badges { display: flex; flex-wrap: wrap; gap: var(--esp-1); }
 
@@ -766,6 +776,73 @@ code { overflow-wrap: anywhere; }
 .legende-evenements strong {
   color: var(--accent-sombre);
   font-variant-numeric: tabular-nums;
+}
+
+/* Les événements qui tombent hors de la période observée (voir
+   ListeEvenements.jsx). Ils sont affichés — sinon le fichier annoncerait un
+   événement que la page ne montre nulle part — mais séparés, et la mention
+   dit pourquoi. Pas de filet en haut : c'est la mention qui l'introduit. */
+.legende-evenements__mention {
+  margin: var(--esp-3) 0 var(--esp-1);
+  padding-top: var(--esp-2);
+  border-top: 1px dashed var(--bordure);
+  font-size: 0.85rem;
+  color: var(--encre-douce);
+}
+
+.legende-evenements--hors-periode {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* LE LIEN D'ÉVITEMENT (voir NavHaut.jsx).
+   Caché tant qu'on ne l'atteint pas, posé par-dessus tout dès qu'il a le
+   focus. On ne l'escamote PAS avec display:none ni visibility:hidden : ces
+   deux propriétés le retirent aussi de l'ordre de tabulation, et le lien
+   devient alors introuvable au clavier — c'est-à-dire inutile.
+   La cible reçoit scroll-margin-top pour ne pas se retrouver sous la barre
+   de navigation, qui est collante. */
+.saut-contenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.7rem 1.1rem;
+  background: var(--surface);
+  color: var(--couleur-marque-sombre);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--bordure);
+  border-radius: 0 0 0.4rem 0;
+  transform: translateY(-120%);
+}
+
+.saut-contenu:focus,
+.saut-contenu:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--couleur-marque);
+  outline-offset: -2px;
+}
+
+#contenu {
+  scroll-margin-top: 5rem;
+}
+
+/* La cible du lien d'évitement porte tabIndex={-1} : elle devient donc
+   focusable par programme, et le navigateur dessinerait un contour autour du
+   contenu entier. On le retire — le déplacement du focus reste effectif. */
+#contenu:focus {
+  outline: none;
+}
+
+/* Une plage d'années ne se coupe jamais en deux lignes.
+   Sur un écran de 360 px, « 1990–2025 » passait à la ligne après le tiret
+   demi-cadratin : la boîte mesurait 43,3 px de haut au lieu de 19, et on
+   lisait « 1990– » puis « 2025 ». Le tiret est un point de coupure légitime
+   pour le navigateur ; il ne l'est pas pour une plage. */
+.plage-annees {
+  white-space: nowrap;
 }
 
 /* --- Barres horizontales des régions (page /territoires) -------------------

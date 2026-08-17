@@ -3,11 +3,19 @@ import NavHaut from '../composants/NavHaut'
 import PiedPage from '../composants/PiedPage'
 import CarteSecteur from '../composants/CarteSecteur'
 import CarteKPI from '../composants/CarteKPI'
-import { tousLesSecteurs, serieParId, dernierPoint } from '../utils/donnees'
+import { tousLesSecteurs, serieParId, dernierPoint, evenementsDuSecteur } from '../utils/donnees'
 import { idSeriePhare } from './contenuSecteurs'
 
 /* Les 3 indicateurs de cadrage national (séries « contexte » de series.json). */
 const IDS_CONTEXTE = ['croissance_pib', 'inflation', 'chomage']
+
+/* Les événements datés du secteur « contexte ».
+   Ils n'étaient affichés NULLE PART : les événements se lisent sous le
+   graphique d'une page secteur, et « contexte » n'a pas de page — c'est un
+   cadrage national, pas un secteur suivi. Un événement sur quinze restait
+   donc dans le fichier sans jamais atteindre l'écran. Sa place est ici,
+   sous les trois repères qu'il éclaire, et non ailleurs. */
+const EVENEMENTS_CONTEXTE = evenementsDuSecteur('contexte')
 
 /* Page d'accueil : un titre, les 3 cartes secteur cliquables (chacune avec son
    chiffre phare et sa mini-courbe), puis 3 KPI de contexte macroéconomique. */
@@ -32,7 +40,7 @@ function PageAccueil() {
         </div>
       </header>
 
-      <main className="conteneur">
+      <main className="conteneur" id="contenu" tabIndex={-1}>
         <section className="section-chapitre">
           <h2>Trois secteurs, trois trajectoires</h2>
           <div className="grille-cartes">
@@ -73,6 +81,21 @@ function PageAccueil() {
               )
             })}
           </div>
+
+          {EVENEMENTS_CONTEXTE.length > 0 && (
+            <>
+              <p className="legende-evenements__mention">
+                Repère daté de la même période :
+              </p>
+              <ul className="legende-evenements legende-evenements--hors-periode">
+                {EVENEMENTS_CONTEXTE.map((evenement) => (
+                  <li key={`${evenement.annee}-${evenement.libelle}`}>
+                    <strong>{evenement.annee}</strong> {evenement.libelle}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </section>
       </main>
 
