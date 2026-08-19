@@ -675,6 +675,12 @@ code { overflow-wrap: anywhere; }
 /* Colonnes numériques : alignées à droite (th et td) */
 .tableau-donnees .num { text-align: right; }
 
+/* L'unité et l'année, dans le tableau de distribution : elles accompagnent le
+   chiffre sans lui disputer la lecture. L'année suit son extremum parce qu'un
+   minimum sans sa date ne se vérifie pas sur le graphique. */
+.tableau-donnees__unite,
+.tableau-donnees__annee { color: var(--encre-douce); font-size: 0.8125em; white-space: nowrap; }
+
 /* Zébrage léger une ligne sur deux */
 .tableau-donnees tbody tr:nth-child(even) { background: #fafbf8; }
 .tableau-donnees tbody tr:hover { background: var(--accent-doux); }

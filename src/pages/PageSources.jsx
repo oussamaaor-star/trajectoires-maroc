@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import NavHaut from '../composants/NavHaut'
 import PiedPage from '../composants/PiedPage'
 import TableauQualite from '../composants/TableauQualite'
+import TableauDistribution from '../composants/TableauDistribution'
 import { toutesLesSources, toutesLesSeries } from '../utils/donnees'
 
 /* Page Sources : d'où viennent les chiffres, ce qu'ils couvrent, leurs
@@ -135,6 +136,8 @@ function PageSources() {
             Sa place est ici : une page qui dit d'où viennent les chiffres
             doit aussi dire jusqu'où ils vont, et où ils s'arrêtent. */}
         <TableauQualite />
+
+        <TableauDistribution />
 
         <section className="section-chapitre">
           <h2>Ce qui reste à livrer</h2>
