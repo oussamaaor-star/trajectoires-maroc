@@ -21,6 +21,8 @@ import PiedPage from '../composants/PiedPage'
 function PageIntrouvable() {
   useEffect(() => {
     document.title = 'Page introuvable — Trajectoires Maroc'
+    document.querySelector("meta[name='description']")
+      .setAttribute('content', "Cette adresse ne correspond à aucune page de la plateforme. Les six pages existantes sont listées ici.")
   }, [])
 
   return (

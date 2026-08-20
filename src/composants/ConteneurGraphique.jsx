@@ -18,7 +18,11 @@ function ConteneurGraphique({ titre, sousTitre, series, idFichier, children }) {
   function telechargeCsv() {
     const nombreFr = (valeur) => (valeur == null ? '' : String(valeur).replace('.', ','))
     const entete = ['annee', ...series.map((s) => `${s.nom} (${s.unite})`)]
-    const annees = anneesDesSeries(series)
+    /* Meme ordre que le tableau a l'ecran : la plus recente d'abord.
+       Le CSV sortait a l'envers, si bien qu'ouvrir le fichier a cote du
+       tableau — le geste evident pour verifier — donnait deux premieres
+       lignes differentes. */
+    const annees = anneesDesSeries(series).slice().reverse()
     const lignes = annees.map((annee) =>
       [annee, ...series.map((s) => nombreFr(valeurPour(s, annee)))].join(';'),
     )
@@ -50,10 +54,12 @@ function ConteneurGraphique({ titre, sousTitre, series, idFichier, children }) {
         </div>
         <div className="conteneur-graphique__actions">
           <div className="groupe-boutons">
-            <button type="button" className={classeBouton('graphique')} onClick={() => setVue('graphique')}>
+            <button type="button" className={classeBouton('graphique')}
+                    aria-pressed={vue === 'graphique'} onClick={() => setVue('graphique')}>
               Graphique
             </button>
-            <button type="button" className={classeBouton('donnees')} onClick={() => setVue('donnees')}>
+            <button type="button" className={classeBouton('donnees')}
+                    aria-pressed={vue === 'donnees'} onClick={() => setVue('donnees')}>
               Données
             </button>
             <button type="button" className="bouton bouton--discret bouton--petit" onClick={telechargeCsv}>
@@ -63,10 +69,14 @@ function ConteneurGraphique({ titre, sousTitre, series, idFichier, children }) {
         </div>
       </div>
 
+      {/* --etroit sur la vue Donnees : une table a deux colonnes n'a pas
+          besoin des 640 px de large imposes par defaut. Sans cette classe,
+          sur un ecran de telephone, seule la colonne des annees restait
+          visible — les valeurs, alignees a droite, sortaient de l'ecran. */}
       {vue === 'graphique' ? (
         children
       ) : (
-        <div className="defilement-tableau">
+        <div className="defilement-tableau defilement-tableau--etroit">
           <TableauDonnees series={series} />
         </div>
       )}

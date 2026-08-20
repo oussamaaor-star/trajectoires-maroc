@@ -23,14 +23,14 @@
     "indicateursCouverts": [
       "Voitures de tourisme (exportations)",
       "Parties et pièces pour voitures (exportations et importations)",
-      "Avions, véhicules aériens et parties d'avions (exportations)",
+      "Avions, véhicules aériens et parties d’avions (exportations)",
       "Blé, orge et autres céréales (importations)",
       "Gaz de pétrole, huile brute, produits raffinés, houilles et cokes (importations)"
     ],
     "limites": "Valeurs en dirhams COURANTS : elles ne sont pas corrigées de l’inflation, une progression sur 28 ans mélange donc effet prix et effet volume. Le début de série est très bas (0,007 milliard de dirhams d’exportations de voitures en 1998), ce qui rend tout rapport de croissance spectaculaire mais peu informatif — le moteur d’analyse le signale de lui-même. Les libellés sont ceux de la nomenclature douanière marocaine, plus fins que les codes SH internationaux mais non directement comparables à d’autres pays : les comparaisons internationales de la plateforme restent fondées sur la Banque Mondiale. Le « solde net de la filière automobile » (exportations de voitures et de pièces, moins importations de pièces) est un calcul de la plateforme, pas une publication de l’Office des Changes."
   },
   {
-    "source": "HCP — Recensement général de la population et de l'habitat (RGPH) 2024",
+    "source": "HCP — Recensement général de la population et de l’habitat (RGPH) 2024",
     "url": "https://www.hcp.ma/downloads/RGPH-2024_t22752.html",
     "description": "Population légale du Royaume du Maroc au 1er septembre 2024, répartie par région, publiée par le Haut-Commissariat au Plan (décret n° 2.24.1009). Les 12 valeurs régionales ont été relevées le 21/07/2026 dans les documents officiels du HCP. Contrôle effectué : la somme des 12 régions retombe exactement sur le total national publié (36 828 330 habitants).",
     "indicateursCouverts": [

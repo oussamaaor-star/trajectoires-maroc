@@ -65,3 +65,25 @@ describe('formate & formateVariation', () => {
     assert.equal(formateVariation(0), '0')
   })
 })
+
+describe('Une valeur absente n’est jamais un zéro', () => {
+  /* C'est la règle que la plateforme affiche partout : « une année non publiée
+     reste un trou ». Elle était tenue dans l'export CSV et cassée à l'écran —
+     formateNombre(null) renvoyait « 0 ». Ces trois tests l'empêchent de se
+     recasser, et le troisième est le plus important : il vérifie qu'un VRAI
+     zéro reste bien un zéro. Une garde trop large serait aussi fausse que
+     l'absence de garde. */
+  it('affiche un tiret pour une valeur nulle ou manquante', () => {
+    assert.equal(formateNombre(null), '—')
+    assert.equal(formateNombre(undefined), '—')
+    assert.equal(formateNombre(NaN), '—')
+  })
+
+  it('n’avale pas un zéro véritable', () => {
+    assert.equal(formateNombre(0), '0')
+  })
+
+  it('formate encore les nombres réels à la française', () => {
+    assert.equal(formateNombre(7688967), '7 688 967')
+  })
+})

@@ -1,16 +1,47 @@
-# React + Vite
+# Trajectoires économiques du Maroc
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Plateforme d'analyse de trajectoires économiques marocaines, construite pendant
+un stage de Master 1 chez DIGIUP (Rabat), du 1er juin au 1er septembre 2026.
 
-Currently, two official plugins are available:
+**En ligne :** https://trajectoires-maroc-fac.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Ce que c'est
 
-## React Compiler
+Trois filières suivies dans la durée — automobile, blé, énergie — à partir de
+séries publiques, avec une règle tenue de bout en bout : **aucun chiffre affiché
+qui ne soit remontable à sa source**, et aucune valeur manquante comblée en
+silence. La page `/sources` expose l'état des données elle-même : période,
+nombre de relevés, taux de couverture et années manquantes, calculés à partir
+des données et non saisis à la main.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Les graphiques sont écrits à la main en SVG. Il n'y a **aucune bibliothèque de
+graphiques** dans le projet, et quatre dépendances au total : React, React DOM,
+React Router et une police.
 
-## Expanding the Oxlint configuration
+## Faire tourner
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```sh
+npm install
+npm run dev        # serveur de développement
+npm test           # la suite de tests
+npm run build      # build de production
+```
+
+**`npm test`, jamais `node --test` seul** : la suite charge un crochet
+(`tests/support/json-hook.mjs`) qui permet d'importer les fichiers JSON sans
+déformer le code de `src/` pour les besoins des tests.
+
+## Où regarder
+
+| Fichier | Ce qu'il contient |
+|---|---|
+| `src/utils/` | Les modules de calcul. Ils n'affichent rien. |
+| `src/composants/` | Les composants d'affichage. Ils ne calculent rien. |
+| `src/utils/donnees.js` | La seule porte d'entrée vers les fichiers de données. |
+| `src/utils/graphique.js` | L'échelle « à pas rond » et le repère de dessin. |
+| `src/utils/analyse.js` | Les phrases calculées sous chaque graphique. |
+| `src/data/` | Les données, en JSON. |
+
+`GUIDE-CODE.md` explique le code fichier par fichier, `TESTS.md` ce que chaque
+test protège, et `DONNEES-PROVENANCE.md` d'où vient chaque série — y compris ce
+qui est un jeu de démonstration et non une donnée observée.

@@ -744,7 +744,7 @@
   {
     "id": "part_industrie_pib",
     "secteur": "automobile",
-    "nom": "Poids de l'industrie dans le PIB",
+    "nom": "Poids de l’industrie dans le PIB",
     "unite": "% du PIB",
     "source": "Banque Mondiale",
     "points": [
@@ -1018,7 +1018,7 @@
   {
     "id": "imports_orge",
     "secteur": "ble",
-    "nom": "Importations d'orge",
+    "nom": "Importations d’orge",
     "unite": "milliards DH",
     "source": "Office des Changes",
     "points": [
@@ -1139,7 +1139,7 @@
   {
     "id": "imports_autres_cereales",
     "secteur": "ble",
-    "nom": "Importations d'autres céréales",
+    "nom": "Importations d’autres céréales",
     "unite": "milliards DH",
     "source": "Office des Changes",
     "points": [
@@ -1559,7 +1559,7 @@
     "id": "terres_arables",
     "secteur": "ble",
     "nom": "Terres arables",
-    "unite": "millions d'hectares",
+    "unite": "millions d’hectares",
     "source": "Banque Mondiale",
     "points": [
       {
@@ -1840,7 +1840,7 @@
   {
     "id": "part_agriculture_pib",
     "secteur": "ble",
-    "nom": "Poids de l'agriculture dans le PIB",
+    "nom": "Poids de l’agriculture dans le PIB",
     "unite": "% du PIB",
     "source": "Banque Mondiale",
     "points": [
@@ -2114,7 +2114,7 @@
   {
     "id": "imports_petrole_brut",
     "secteur": "energie",
-    "nom": "Importations d'huile brute de pétrole",
+    "nom": "Importations d’huile brute de pétrole",
     "unite": "milliards DH",
     "source": "Office des Changes",
     "points": [
@@ -2446,7 +2446,7 @@
     "id": "dependance_energetique",
     "secteur": "energie",
     "nom": "Dépendance énergétique (importations nettes)",
-    "unite": "% de l'énergie utilisée",
+    "unite": "% de l’énergie utilisée",
     "source": "Banque Mondiale",
     "points": [
       {
@@ -2591,7 +2591,7 @@
     "id": "part_renouvelables",
     "secteur": "energie",
     "nom": "Part des renouvelables dans la consommation finale",
-    "unite": "% de la consommation finale d'énergie",
+    "unite": "% de la consommation finale d’énergie",
     "source": "Banque Mondiale",
     "points": [
       {
@@ -2727,7 +2727,7 @@
   {
     "id": "conso_energie_hab",
     "secteur": "energie",
-    "nom": "Consommation d'énergie par habitant",
+    "nom": "Consommation d’énergie par habitant",
     "unite": "kg équivalent pétrole",
     "source": "Banque Mondiale",
     "points": [

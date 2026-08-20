@@ -16,7 +16,7 @@ dépendance de test à installer. On les lance avec :
 npm test
 ```
 
-## 2. Les trois fichiers de tests
+## 2. Les neuf fichiers de tests
 
 | Fichier | Ce qu'il protège | Exemple de risque attrapé |
 |---|---|---|

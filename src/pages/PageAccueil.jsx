@@ -22,6 +22,8 @@ const EVENEMENTS_CONTEXTE = evenementsDuSecteur('contexte')
 function PageAccueil() {
   useEffect(() => {
     document.title = 'Trajectoires économiques du Maroc'
+    document.querySelector("meta[name='description']")
+      .setAttribute('content', "Trois filières marocaines suivies dans la durée — automobile, blé, énergie — à partir de séries publiques, avec leurs sources et leurs trous.")
   }, [])
 
   return (

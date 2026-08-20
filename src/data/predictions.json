@@ -23,30 +23,5 @@
         "haute": 76.82
       }
     ]
-  },
-  {
-    "id": "dependance_energetique",
-    "nom": "Dépendance énergétique (importations nettes)",
-    "modele": "démonstration",
-    "points": [
-      {
-        "annee": 2024,
-        "valeur": 94.57,
-        "basse": 93.57,
-        "haute": 95.57
-      },
-      {
-        "annee": 2025,
-        "valeur": 95.53,
-        "basse": 93.53,
-        "haute": 97.53
-      },
-      {
-        "annee": 2026,
-        "valeur": 96.5,
-        "basse": 93.5,
-        "haute": 99.5
-      }
-    ]
   }
 ]

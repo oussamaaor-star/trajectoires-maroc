@@ -43,7 +43,7 @@
         "uniteVariation": "pt"
       },
       {
-        "label": "Poids de l'industrie dans le PIB",
+        "label": "Poids de l’industrie dans le PIB",
         "valeur": 25.2,
         "unite": "% du PIB",
         "annee": 2025,
@@ -88,7 +88,7 @@
         "uniteVariation": "%"
       },
       {
-        "label": "Poids de l'agriculture dans le PIB",
+        "label": "Poids de l’agriculture dans le PIB",
         "valeur": 10.5,
         "unite": "% du PIB",
         "annee": 2025,
@@ -117,7 +117,7 @@
       {
         "label": "Dépendance énergétique (imports nets)",
         "valeur": 93.6,
-        "unite": "% de l'énergie utilisée",
+        "unite": "% de l’énergie utilisée",
         "annee": 2023,
         "variation": -0.4,
         "source": "Banque Mondiale",
@@ -144,7 +144,7 @@
       {
         "label": "Renouvelables dans la consommation finale",
         "valeur": 10.9,
-        "unite": "% de la consommation finale d'énergie",
+        "unite": "% de la consommation finale d’énergie",
         "annee": 2021,
         "variation": -0.2,
         "source": "Banque Mondiale",

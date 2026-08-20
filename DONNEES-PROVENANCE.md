@@ -82,32 +82,18 @@ prix et effet volume. Le début de série est très bas (0,007 Md DH d'exportati
 de voitures en 1998), ce qui rend tout rapport de croissance spectaculaire mais
 peu informatif — le moteur d'analyse le signale de lui-même.
 
-### Réel — Fond de carte des régions : geoBoundaries (récupéré le 21/07/2026)
+### Ce qui n’a pas été fait — le fond de carte
 
-| Élément | Détail |
-|---|---|
-| Source | [geoBoundaries gbOpen MAR ADM1](https://www.geoboundaries.org/api/current/gbOpen/MAR/ADM1/), geoLab de William & Mary, d'après OpenStreetMap |
-| URL exacte du fichier | `https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/MAR/ADM1/geoBoundaries-MAR-ADM1_simplified.geojson` |
-| Licence | Open Data Commons Open Database License (**ODbL 1.0**) — réutilisation autorisée avec attribution |
-| Contenu | Les **12 régions** du découpage territorial de 2015, avec leur code officiel **ISO 3166-2:MA** (`MA-01`…`MA-12`) déjà présent dans la source (champ `shapeISO`) |
-| Poids | GeoJSON brut **1,74 Mo** → version « simplified » de la source **250 Ko** → fichier livré **54 Ko** |
+La page Territoires **n’affiche pas de carte**. Les douze régions y sont
+représentées par des barres horizontales, triées par valeur décroissante
+(`src/composants/BarresRegions.jsx`).
 
-**Ce qui a été fait au fichier** (et rien d'autre) :
-
-1. les coordonnées ont été **quantifiées sur une grille de 0,01°** (≈ 1,1 km, soit
-   environ un demi-pixel à la taille d'affichage) ;
-2. les points **quasi alignés** ont été supprimés (un point dont le retrait
-   déplace le contour de moins d'un demi-pixel n'apporte rien) ;
-3. les noms anglais de la source (« Tangier-Tetouan-Al Hoceima », « Fez-Meknes »)
-   ont été remplacés par les **noms officiels français**.
-
-Résultat : 8 834 points → **3 827 points**. Aucune coordonnée n'a été saisie ni
-retouchée à la main. Le détail de la méthode — et surtout la raison pour laquelle
-on ne fait *pas* un Douglas-Peucker classique — est dans `src/utils/carte.js` et
-dans `GUIDE-CODE.md` §9.
-
-> ⚠️ Ce fond est simplifié **pour l'écran**. Il ne doit pas servir à calculer une
-> superficie ni à faire de l'analyse géographique.
+Un fond de carte avait été envisagé, à partir du découpage geoBoundaries
+gbOpen MAR ADM1 sous licence ODbL. Il n’a pas été intégré : le seul indicateur
+régional disponible est la population, une donnée de cadrage et non un
+indicateur économique, et une carte du Maroc coloriée par population aurait
+surtout appris au lecteur où vivent les Marocains. Les barres disent la même
+chose sans en promettre davantage.
 
 ### Réel — Population par région : HCP, RGPH 2024 (relevé le 21/07/2026)
 

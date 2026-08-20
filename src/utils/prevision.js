@@ -1,5 +1,5 @@
 /* ============================================================================
-   prevision.js — les PRÉVISIONS livrées par le binôme data
+   prevision.js — la porte d’entrée des prévisions
    ----------------------------------------------------------------------------
    POURQUOI CE FICHIER EXISTE
    La plateforme sait déjà prolonger une série toute seule : `projetteDeuxAns`
@@ -7,9 +7,18 @@
    c'est honnête, et c'est écrit sur le graphique — mais ce n'est pas un modèle
    statistique, et cela ne donne aucun intervalle.
 
-   Le binôme data, lui, produit de vraies prévisions : une valeur, une borne
-   basse, une borne haute et un nom de modèle. Ce fichier est la porte par
-   laquelle elles entrent. Tant qu'il n'y a pas de fichier — ou pas de
+   Un modèle statistique, lui, produit une valeur, une borne basse, une borne
+   haute et un nom de modèle. Ce fichier est la porte par laquelle de telles
+   prévisions entreront le jour où le binôme data en livrera.
+
+   ATTENTION — À CE JOUR, RIEN N'A ÉTÉ LIVRÉ. Le fichier predictions.json
+   contient un jeu de DÉMONSTRATION, écrit à la main le 21/07/2026 pour
+   développer l'affichage. Sa série porte `modele: "démonstration"`,
+   ce qui déclenche un bandeau sur le graphique, et l'EXCLUSION de ces
+   années du tableau comme de l'export : on ne télécharge que de l'observé.
+   Ses valeurs centrales sont celles que produit `projetteDeuxAns` ; la bande
+   qui les entoure suit une règle arbitraire et n'a aucune interprétation
+   probabiliste. Tant qu'il n'y a pas de fichier — ou pas de
    prévision pour la série affichée — ces fonctions renvoient `null` et la
    plateforme se comporte exactement comme avant.
 

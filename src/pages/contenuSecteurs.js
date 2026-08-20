@@ -34,11 +34,11 @@ export const CONTENU_SECTEURS = {
     introVue:
       'Une campagne sèche en 2024 : 3,21 millions de tonnes de céréales, en baisse de 43 % sur un an, pour un rendement de 1 240 kg par hectare.',
     introTrajectoire:
-      'La récolte oscille entre 1,78 et 11,69 millions de tonnes d’une campagne à l’autre. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : sa dispersion atteint 46 % de sa moyenne, et une série de cette nature n’a pas de tendance à prolonger.',
+      'La récolte oscille entre 1,78 et 11,69 millions de tonnes d’une campagne à l’autre. Les barres permettent de comparer les campagnes une à une. On ne projette pas cette série : sa dispersion atteint 45,6 % de sa moyenne, et une série de cette nature n’a pas de tendance à prolonger.',
     trajectoire: {
       type: 'barres', // magnitude annuelle très volatile → barres, pas courbe
       serieId: 'prod_cereales',
-      projection: false, // dispersion égale à la moitié de la moyenne : aucune tendance à prolonger
+      projection: false, // dispersion de 45,6 % de la moyenne, sans tendance
       titre: 'La production céréalière varie du simple au sextuple d’une campagne à l’autre',
       sousTitre: 'Millions de tonnes — observé 1990–2024',
     },
@@ -52,11 +52,11 @@ export const CONTENU_SECTEURS = {
     // datés et vérifiables ; le lien entre eux et la courbe, lui, n’est démontré
     // par aucune donnée affichée ici. On juxtapose, comme partout ailleurs.
     introTrajectoire:
-      "La dépendance énergétique reste très élevée. Deux ruptures sont datées sur la même période : la fermeture de la raffinerie Samir (2015) et celle du gazoduc Maghreb-Europe (2021).",
+      "La dépendance énergétique reste très élevée. Elle dépasse même 100 % certaines années — 103,8 % en 2012 — parce qu’elle rapporte les importations NETTES à l’énergie utilisée : une année où le pays reconstitue ses stocks, il importe plus qu’il ne consomme. Deux ruptures sont datées sur la même période : la fermeture de la raffinerie Samir (2015) et celle du gazoduc Maghreb-Europe (2021).",
     trajectoire: {
       type: 'courbe',
       serieId: 'dependance_energetique',
-      projection: true,
+      projection: false, // dernier relevé en 2023 : prolonger une série vieille de trois ans
       titre: "Le Maroc importe plus de 90 % de l’énergie qu’il consomme",
       sousTitre: "Importations nettes en % de l’énergie utilisée — observé 1990–2023",
       etiquette: 'Dépendance',

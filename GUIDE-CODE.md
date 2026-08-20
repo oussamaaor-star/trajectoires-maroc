@@ -183,7 +183,7 @@ AFFICHÉ comme graphique principal d'un secteur, on l'indique dans
 
 ## 10. Les tests (`npm test`)
 
-Trois fichiers, tous simples et rapides (`node:test`) :
+Neuf fichiers, tous simples et rapides (`node:test`) :
 
 | Fichier | Ce qu'il protège |
 |---|---|

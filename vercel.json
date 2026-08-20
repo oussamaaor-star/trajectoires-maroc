@@ -1,11 +1,47 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/secteur/automobile", "destination": "/index.html" },
-    { "source": "/secteur/ble", "destination": "/index.html" },
-    { "source": "/secteur/energie", "destination": "/index.html" },
-    { "source": "/territoires", "destination": "/index.html" },
-    { "source": "/sources", "destination": "/index.html" }
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/secteur/automobile",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/secteur/ble",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/secteur/energie",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/territoires",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sources",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:chemin*/",
+      "destination": "/:chemin*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }

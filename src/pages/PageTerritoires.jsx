@@ -25,6 +25,8 @@ const regions = Object.entries(nomsRegions)
 function PageTerritoires() {
   useEffect(() => {
     document.title = 'Territoires — Trajectoires Maroc'
+    document.querySelector("meta[name='description']")
+      .setAttribute('content', "La population des douze régions du Maroc au recensement de 2024, et pourquoi les indicateurs économiques régionaux manquent encore.")
   }, [])
 
   return (

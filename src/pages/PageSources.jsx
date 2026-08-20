@@ -17,6 +17,8 @@ import { toutesLesSources, toutesLesSeries } from '../utils/donnees'
 function PageSources() {
   useEffect(() => {
     document.title = 'Sources des données — Trajectoires Maroc'
+    document.querySelector("meta[name='description']")
+      .setAttribute('content', "D'où vient chaque chiffre de la plateforme : quatre sources publiques, leur période, leur couverture et les années manquantes, calculées à partir des données.")
   }, [])
 
   /* Combien de séries par source, et sur quelle période. Rien d'écrit à la
@@ -86,7 +88,7 @@ function PageSources() {
             . Les séries douanières ont été transmises le 02/08/2026 par le
             binôme data du stage, sous forme d’un tableau croisé mensuel agrégé
             ici en totaux annuels ; l’année 2026, incomplète, en est exclue. La
-            population par région, qui alimente la carte, vient du recensement
+            population par région, qui alimente le graphique régional, vient du recensement
             2024 du HCP : c’est une donnée structurelle, et elle ne figure pas
             dans ce décompte de séries annuelles.
           </p>
@@ -161,11 +163,11 @@ function PageSources() {
             <strong>Les indicateurs économiques régionaux</strong> —{' '}
             <code>regions.csv</code>, colonnes <code>indicateur ; secteur ;
             region ; annee ; valeur ; unite ; source</code>, avec les codes
-            officiels <code>MA-01</code> à <code>MA-12</code>. La carte affiche
+            officiels <code>MA-01</code> à <code>MA-12</code>. Le graphique affiche
             aujourd’hui la population du recensement 2024 : une donnée
             structurelle, pas économique, choisie parce qu’elle est réelle et
             vérifiable. Une cellule vide reste vide — la région s’affiche
-            hachurée plutôt que remplie par une estimation.
+            laissée sans barre, et marquée d’un tiret, plutôt que remplie par une estimation.
           </p>
           <p className="mention-prevision">
             La conversion refuse d’écrire quoi que ce soit tant qu’une erreur

@@ -64,10 +64,14 @@ function BarresRegions({ indicateur, regions }) {
             <li key={region.code} className="barre-region">
               <span className="barre-region__nom">{region.nom}</span>
               <span className="barre-region__piste">
-                <span
-                  className="barre-region__remplissage"
-                  style={{ width: `${maximum > 0 ? (region.valeur / maximum) * 100 : 0}%` }}
-                />
+                {/* Pas de barre du tout quand la valeur est absente : une
+                    barre de longueur nulle se lirait comme un vrai zero. */}
+                {region.valeur != null && (
+                  <span
+                    className="barre-region__remplissage"
+                    style={{ width: `${maximum > 0 ? (region.valeur / maximum) * 100 : 0}%` }}
+                  />
+                )}
               </span>
               <span className="barre-region__valeur">{formateNombre(region.valeur)}</span>
             </li>

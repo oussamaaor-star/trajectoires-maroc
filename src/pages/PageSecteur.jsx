@@ -31,6 +31,10 @@ function PageSecteur() {
      ne doit jamais être appelé conditionnellement). */
   useEffect(() => {
     if (secteur) document.title = `${secteur.nom} — Trajectoires Maroc`
+    if (secteur) {
+      document.querySelector("meta[name='description']")
+        .setAttribute('content', `${secteur.nom} au Maroc : séries publiques, événements datés et sources déclarées.`)
+    }
   }, [secteur])
 
   /* id inconnu dans l'URL (/secteur/nimportequoi) : la ROUTE existe, c'est le

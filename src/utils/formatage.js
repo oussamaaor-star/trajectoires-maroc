@@ -25,6 +25,11 @@ const formateurPetitesValeurs = new Intl.NumberFormat('fr-FR', {
 
 /* Formate un nombre seul : formateNombre(1240) → « 1 240 ». */
 export function formateNombre(valeur) {
+  /* Une valeur absente s'affiche « — », jamais « 0 ». Sans cette garde,
+     `formateNombre(null)` renvoyait « 0 » : une region sans donnee devenait
+     une region a zero, exactement la confusion que la plateforme dit
+     partout ne jamais commettre. */
+  if (!Number.isFinite(valeur)) return '—'
   if (valeur !== 0 && Math.abs(valeur) < SEUIL_PETITE_VALEUR) {
     return formateurPetitesValeurs.format(valeur)
   }
@@ -48,9 +53,12 @@ const UNITES_COURTES = {
 /* Version courte d'une unité : les unités en pourcentage deviennent « % »
    (le contexte est déjà donné par le libellé de l'indicateur). */
 export function uniteCourte(unite) {
-  if (UNITES_COURTES[unite]) return UNITES_COURTES[unite]
-  if (unite.startsWith('%')) return '%'
-  return unite
+  /* Une serie sans champ `unite` faisait lever `startsWith` et vidait la
+     page. Mieux vaut une unite vide qu'un ecran blanc. */
+  const u = String(unite ?? '')
+  if (UNITES_COURTES[u]) return UNITES_COURTES[u]
+  if (u.startsWith('%')) return '%'
+  return u
 }
 
 /* LES DEUX ESPACES INSÉCABLES QUI SÉPARENT UN NOMBRE DE SON UNITÉ.
