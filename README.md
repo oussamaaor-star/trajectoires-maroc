@@ -37,7 +37,7 @@ déformer le code de `src/` pour les besoins des tests.
 |---|---|
 | `src/utils/` | Les modules de calcul. Ils n'affichent rien. |
 | `src/composants/` | Les composants d'affichage. Ils ne calculent rien. |
-| `src/utils/donnees.js` | La seule porte d'entrée vers les fichiers de données. |
+| `src/utils/donnees.js` | La porte d'entrée vers les fichiers de données. **Aucun composant** n'en lit un directement ; deux exceptions assumées subsistent côté modules, `PageTerritoires.jsx` et `prevision.js`. |
 | `src/utils/graphique.js` | L'échelle « à pas rond » et le repère de dessin. |
 | `src/utils/analyse.js` | Les phrases calculées sous chaque graphique. |
 | `src/data/` | Les données, en JSON. |

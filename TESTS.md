@@ -18,11 +18,23 @@ npm test
 
 ## 2. Les neuf fichiers de tests
 
-| Fichier | Ce qu'il protège | Exemple de risque attrapé |
-|---|---|---|
-| `tests/formatage.test.mjs` | le formatage des nombres « à la française » | les nombres repassent au format anglais (`1,240.5`) |
-| `tests/donnees.test.mjs` | la couche d'accès aux JSON (`utils/donnees.js`) | une recherche de série renvoie la mauvaise, ou un `0` confondu avec « valeur absente » |
-| `tests/analyse.test.mjs` | la synthèse auto (2 phrases) et la projection simple | une phrase générée affiche un chiffre faux, ou la projection sort du cadre |
+**75 tests répartis en 24 groupes, tous passants.** La commande affiche
+`1..24  # tests 75  # suites 24  # pass 75  # fail 0`.
+
+| Fichier | Groupes | Tests | Ce qu'il protège | Exemple de risque attrapé |
+|---|--:|--:|---|---|
+| `tests/analyse.test.mjs` | 5 | 11 | la synthèse automatique (deux phrases) et la projection | une phrase affiche « progression » sous une courbe qui baisse |
+| `tests/distribution.test.mjs` | 4 | 14 | médiane, écart-type, description d'une série | l'écart-type bascule de la convention population à celle d'échantillon |
+| `tests/donnees.test.mjs` | 3 | 7 | la couche d'accès aux JSON (`utils/donnees.js`) | une recherche de série renvoie la mauvaise, ou un `0` confondu avec « valeur absente » |
+| `tests/donnees-integrite.test.mjs` | 1 | 3 | le recoupement des douze valeurs régionales | la somme des populations régionales cesse de tomber sur 36 828 330 |
+| `tests/echange.test.mjs` | 1 | 5 | le format d'échange avec l'équipe data | le fichier livré par le binôme change de forme sans qu'on le voie |
+| `tests/formatage.test.mjs` | 4 | 9 | le formatage des nombres « à la française » | les nombres repassent au format anglais (`1,240.5`), ou une valeur absente s'affiche `0` |
+| `tests/graphique.test.mjs` | 3 | 14 | l'échelle verticale, l'axe des années, le repère de dessin | une barre est tronquée, ou l'échelle ne part plus de zéro |
+| `tests/prevision.test.mjs` | 1 | 5 | le contrat des prévisions livrées | un fichier de prévision mal formé passe sans être signalé |
+| `tests/qualite.test.mjs` | 2 | 7 | la couverture et la synthèse sur les vraies données | un trou de série cesse d'être compté comme tel |
+
+*(Relevé du 20/08/2026, obtenu en lançant chaque fichier séparément.
+`tests/support/` n'est pas compté : ce sont deux fichiers d'outillage.)*
 
 Les tests travaillent sur des **séries fabriquées à la main** (des chiffres ronds,
 vérifiables de tête) pour être indépendants du dataset, plus quelques

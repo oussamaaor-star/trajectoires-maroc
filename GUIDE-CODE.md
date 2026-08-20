@@ -39,15 +39,19 @@ plateforme-fac/
     │   ├── evenements.json         les événements marquants (année + libellé)
     │   ├── sources.json            sources, indicateurs couverts, limites
     │   ├── valeurs-regionales.json valeurs par région (population, page Territoires)
-    │   └── regions-noms.json       codes région MA-01…MA-12 → noms
+    │   ├── regions-noms.json       codes région MA-01…MA-12 → noms
+    │   └── predictions.json        le prolongement de démonstration (1 série, 2026-2028)
     │
-    ├── utils/                  ← fonctions pures, sans React
+    ├── utils/                  ← 7 modules de fonctions pures, sans React
     │   ├── formatage.js            formate(valeur, unite) : « 6,39 Md USD »
     │   ├── donnees.js              la « couche d'accès » aux JSON
-    │   ├── analyse.js              synthèse auto (2 phrases) + projection simple
+    │   ├── analyse.js              synthèse auto (2 phrases)
+    │   ├── prevision.js            le prolongement de tendance et son contrat
+    │   ├── distribution.js         médiane, écart-type, dispersion d'une série
+    │   ├── qualite.js              couverture d'une série, comptage des trous
     │   └── graphique.js            géométrie SVG partagée (repère 720×400, échelles)
     │
-    ├── composants/             ← briques réutilisables
+    ├── composants/             ← 18 briques réutilisables
     │   ├── NavHaut.jsx             barre de navigation
     │   ├── PiedPage.jsx            pied de page
     │   ├── CarteKPI.jsx            carte « gros chiffre + variation ↑↓ »
@@ -63,13 +67,16 @@ plateforme-fac/
     │   ├── TableauDonnees.jsx      tableau année × séries (vue accessible)
     │   ├── ListeEvenements.jsx     liste des événements en texte, sous le graphique
     │   ├── LectureAutomatique.jsx  le bloc « Lecture automatique » (2 phrases)
+    │   ├── TableauDistribution.jsx tableau de dispersion des séries
+    │   ├── TableauQualite.jsx      tableau de couverture (relevés présents / attendus)
     │   └── BarresRegions.jsx       barres horizontales par région (page Territoires)
     │
-    └── pages/                  ← une page = une route
+    └── pages/                  ← 5 pages, une page = une route
         ├── PageAccueil.jsx       /
         ├── PageSecteur.jsx       /secteur/:id  (gabarit UNIQUE des 3 secteurs)
         ├── PageTerritoires.jsx   /territoires
         ├── PageSources.jsx       /sources
+        ├── PageIntrouvable.jsx   toute autre adresse (page 404)
         └── contenuSecteurs.js    le contenu éditorial (titres, intros, choix de graphique)
 ```
 
@@ -88,7 +95,9 @@ donnée ne touche jamais un composant.
   composant**.
 - `/territoires` → `PageTerritoires`
 - `/sources` → `PageSources`
-- `*` (tout le reste) → retour à l'accueil.
+- `*` (toute autre adresse) → `PageIntrouvable`, une vraie page 404 qui dit ce
+  qui s'est passé et propose un lien vers l'accueil. On ne redirige pas
+  silencieusement : une adresse fausse doit se voir.
 
 Astuce à montrer : `PageSecteur` pose `data-secteur="ble"` sur sa racine. En CSS,
 `[data-secteur="ble"]` redéfinit la variable `--accent` — et TOUS les éléments
@@ -136,15 +145,33 @@ déterministes : même donnée = même phrase → c'est vérifiable et testable 
 Le bloc s'affiche sous la mention « Analyse générée automatiquement à partir des
 données ».
 
-## 6. La projection simple — `projetteDeuxAns(points)` dans `analyse.js`
+## 6. Le prolongement de tendance — `projetteDeuxAns(points)` (`analyse.js`) et `prevision.js`
 
-Sur le graphique principal de chaque secteur, on **prolonge la tendance de 2 ans**
-en pointillés. La tendance = **la moyenne des variations des 3 dernières années**,
-appliquée aux 2 années suivantes. C'est volontairement basique (« j'ai prolongé
-la tendance ») : pas de modèle statistique, pas de bande de confiance. Une valeur
-projetée négative est ramenée à 0. Le graphique affiche la mention « Projection
-simple (prolongement de la tendance) ». Couvre l'objectif « indicateurs
-prospectifs / aide à la décision ».
+Il y a **deux chemins**, et il faut savoir les distinguer à l'oral.
+
+1. **La projection maison**, `projetteDeuxAns` dans `analyse.js` : la tendance
+   est **la moyenne des variations des 3 dernières années**, appliquée aux
+   2 années suivantes, en pointillés. Volontairement basique — « j'ai prolongé
+   la tendance ». Pas de modèle statistique, **pas d'intervalle**. Une valeur
+   projetée négative est ramenée à 0. Le graphique affiche alors « Projection
+   simple (prolongement de la tendance des 3 dernières années sur 2 ans) ».
+2. **La porte des prévisions livrées**, `prevision.js` : elle attend d'un modèle
+   une valeur, une borne basse, une borne haute et un nom de modèle. **Rien n'a
+   été livré à ce jour.** `src/data/predictions.json` contient un jeu de
+   **démonstration** écrit à la main le 21/07/2026, portant `modele:
+   "démonstration"` — ce qui déclenche un bandeau sur le graphique. La bande
+   dessinée autour des points suit une **règle arbitraire** et **n'a aucune
+   interprétation probabiliste** : c'est pourquoi la page l'appelle « bande »
+   et jamais « bande de confiance ».
+
+**Une seule série est prolongée aujourd'hui** : les exportations de voitures,
+de 2026 à 2028. Le blé ne l'est pas (sa dispersion atteint 45,6 % de sa
+moyenne : il n'y a pas de tendance à prolonger) et l'énergie non plus (son
+dernier relevé date de 2023). Ces choix sont posés dans
+`src/pages/contenuSecteurs.js`, champ `projection`.
+
+Les années projetées sont **exclues** de la vue « Données » et de l'export
+CSV : on ne télécharge que de l'observé.
 
 ## 7. La page Territoires (`/territoires`)
 
@@ -158,14 +185,18 @@ indicateurs économiques régionaux s'afficheront de la même façon dès leur c
 
 ## 8. Ce que couvre chaque objectif de la fiche
 
-| Objectif de la fiche | Où c'est visible |
-|---|---|
-| Analyse & visualisation d'indicateurs | KPI + graphiques des pages secteur, contexte national de l'accueil |
-| Exploitation de données ouvertes | Données Banque Mondiale / UN Comtrade / HCP, page **Sources** |
-| Tableaux de bord interactifs | Pages secteur : survol, bascule Graphique/Tableau, CSV |
-| Automatisation d'analyses et de synthèses | **Lecture automatique** (2 phrases calculées, `analyse.js`) |
-| IA / aide à la décision, indicateurs prospectifs | **Projection simple** sur 2 ans |
-| Indicateurs territoriaux | Page **Territoires** (population par région) |
+| Objectif de la fiche | Où c'est visible | Portée réelle |
+|---|---|---|
+| Analyse & visualisation d'indicateurs | KPI + graphiques des pages secteur, contexte national de l'accueil | complète sur les 3 secteurs |
+| Exploitation de données ouvertes | Banque Mondiale, Office des Changes, HCP, collecte interne — page **Sources** | complète |
+| Tableaux de bord interactifs | Pages secteur : survol, bascule Graphique/Données, CSV, sommaire d'ancres | complète, sans filtre ni sélecteur de période |
+| Automatisation d'analyses et de synthèses | **Lecture automatique** (2 phrases calculées, `analyse.js`) | couvert par un calcul déterministe : **aucun modèle de langage** |
+| Fonctionnalités **IA** et d'aide à la décision | Prolongement de tendance, variations annuelles, événements datés | **partielle** : la mise en évidence seulement, sans recommandation ni alerte, et sans intelligence artificielle |
+| Indicateurs prospectifs et territoriaux | Prolongement à 2 ans ; page **Territoires** (population par région) | prospectif couvert ; territorial couvert par une seule donnée démographique, en attente d'indicateurs économiques régionaux |
+
+C'est le même bilan que le tableau n° 13 du rapport : **cinq des six objectifs
+sont couverts, dont trois avec une réserve** ; le cinquième ne l'est que
+partiellement, son volet « intelligence artificielle » ne l'étant pas.
 
 ## 9. Ajouter ou remplacer des données
 
@@ -183,13 +214,25 @@ AFFICHÉ comme graphique principal d'un secteur, on l'indique dans
 
 ## 10. Les tests (`npm test`)
 
-Neuf fichiers, tous simples et rapides (`node:test`) :
+Neuf fichiers, tous simples et rapides (`node:test`). **75 tests en 24 groupes,
+tous passants** : la commande affiche `1..24  # tests 75  # suites 24  # pass 75
+# fail 0`. Le détail commenté est dans `TESTS.md`.
 
-| Fichier | Ce qu'il protège |
-|---|---|
-| `tests/formatage.test.mjs` | le formatage des nombres « à la française » (1 240,5 et pas 1,240.5) |
-| `tests/donnees.test.mjs` | la couche d'accès aux JSON (recherche, valeurs, années, sources) |
-| `tests/analyse.test.mjs` | la synthèse en 2 phrases ET la projection simple |
+| Fichier | Groupes | Tests | Ce qu'il protège |
+|---|--:|--:|---|
+| `tests/analyse.test.mjs` | 5 | 11 | la synthèse en 2 phrases, y compris le sens d'une série qui part de zéro |
+| `tests/distribution.test.mjs` | 4 | 14 | médiane, écart-type, dispersion |
+| `tests/donnees.test.mjs` | 3 | 7 | la couche d'accès aux JSON (recherche, valeurs, années, sources) |
+| `tests/donnees-integrite.test.mjs` | 1 | 3 | le recoupement des douze valeurs régionales |
+| `tests/echange.test.mjs` | 1 | 5 | le format d'échange avec l'équipe data |
+| `tests/formatage.test.mjs` | 4 | 9 | le formatage « à la française » (1 240,5 et pas 1,240.5) et le refus du zéro fictif |
+| `tests/graphique.test.mjs` | 3 | 14 | l'échelle verticale, l'axe des années, le repère de dessin |
+| `tests/prevision.test.mjs` | 1 | 5 | le contrat des prévisions livrées |
+| `tests/qualite.test.mjs` | 2 | 7 | la couverture d'une série et le comptage des trous |
+
+⚠ La commande est **`npm test`**, jamais `node --test tests/` : sans le
+`--import` du hook ci-dessous, six fichiers échouent aussitôt
+(`ERR_IMPORT_ASSERTION_TYPE_MISSING`).
 
 Les tests lisent les vrais JSON grâce au petit hook `tests/support/json-hook.mjs`
 (il ajoute l'attribut `{ type: 'json' }` que Node réclame, sans modifier le code

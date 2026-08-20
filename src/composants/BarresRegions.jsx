@@ -45,10 +45,12 @@ function BarresRegions({ indicateur, regions }) {
         </div>
         <div className="conteneur-graphique__actions">
           <div className="groupe-boutons">
-            <button type="button" className={classeBouton('graphique')} onClick={() => setVue('graphique')}>
+            <button type="button" className={classeBouton('graphique')}
+                    aria-pressed={vue === 'graphique'} onClick={() => setVue('graphique')}>
               Graphique
             </button>
-            <button type="button" className={classeBouton('donnees')} onClick={() => setVue('donnees')}>
+            <button type="button" className={classeBouton('donnees')}
+                    aria-pressed={vue === 'donnees'} onClick={() => setVue('donnees')}>
               Données
             </button>
             <button type="button" className="bouton bouton--discret bouton--petit" onClick={telechargeCsv}>

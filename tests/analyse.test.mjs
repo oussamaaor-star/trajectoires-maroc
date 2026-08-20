@@ -38,6 +38,18 @@ describe('Phrase d’évolution', () => {
     assert.match(texte, /forte progression depuis un niveau très faible/)
     assert.doesNotMatch(texte, /Infinity|NaN|multipliée/)
   })
+
+  it('ne parle pas de progression quand la série part de zéro et descend', () => {
+    /* La branche « départ à zéro » écrivait « forte progression » sans
+       jamais regarder le sens : sous une courbe qui baisse, la phrase
+       affichée disait le contraire du dessin. */
+    const phrase = phrasesDeLaSerie({
+      unite: 'milliards USD',
+      points: [{ annee: 2010, valeur: 0 }, { annee: 2020, valeur: -5 }],
+    })[0]
+    assert.doesNotMatch(phrase, /progression/)
+    assert.match(phrase, /recul depuis un niveau très faible/)
+  })
 })
 
 describe('Phrase des extrêmes', () => {

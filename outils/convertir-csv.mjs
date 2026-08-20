@@ -19,7 +19,7 @@
 
    FICHIERS ÉCRITS dans src/data/ :
      predictions.json         ← predictions.csv  (courbe pointillée + bande)
-     valeurs-regionales.json  ← regions.csv      (carte des 12 régions)
+     valeurs-regionales.json  ← regions.csv      (barres des 12 régions)
 
    DEUX PRINCIPES DE SÛRETÉ
    1. RIEN N'EST ÉCRIT TANT QU'UNE ERREUR SUBSISTE. On lit tout, on valide
@@ -166,8 +166,9 @@ function convertitRegions() {
       })
     }
     const valeur = nombre(ligne.valeur)
-    /* Une cellule vide laisse la région SANS donnée : la carte l'affiche
-       hachurée. On ne comble jamais un trou par une estimation. */
+    /* Une cellule vide laisse la région SANS donnée : la page Territoires
+       ne lui dessine aucune barre et affiche « — » à la place de sa valeur.
+       On ne comble jamais un trou par une estimation. */
     if (valeur == null) {
       avertissements.push(`regions.csv ligne ${i + 2} : valeur vide (${nom} / ${region}) — région laissée sans donnée`)
       return
@@ -179,7 +180,7 @@ function convertitRegions() {
     const remplies = Object.keys(ind.valeurs).length
     if (remplies < REGIONS.length) {
       avertissements.push(
-        `indicateur régional « ${ind.nom} » : ${remplies}/${REGIONS.length} régions renseignées — les autres seront hachurées`,
+        `indicateur régional « ${ind.nom} » : ${remplies}/${REGIONS.length} régions renseignées — les autres n'auront pas de barre, et leur valeur s'affichera « — »`,
       )
     }
   }

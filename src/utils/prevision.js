@@ -91,6 +91,7 @@ export function estDemonstration(prevision) {
 /* Toutes les valeurs prévues, BORNES COMPRISES. Sert à étendre l'échelle
    verticale du graphique : sans elles, le haut de la bande sortirait du
    cadre. */
+/* eslint-disable-next-line no-unused-vars -- conservée pour mémoire */
 export function valeursPrevues(prevision) {
   return prevision.points.flatMap((p) => [p.valeur, p.basse, p.haute])
 }

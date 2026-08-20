@@ -53,7 +53,7 @@ function GraphiqueSerie({ config, evenements = [] }) {
         <p className="mention-prevision mention-prevision--demonstration">
           <strong>Prévisions de démonstration</strong> — en attente du modèle de l’équipe data.
           Les valeurs prévues ci-dessus ne sortent d’aucun modèle statistique : elles servent
-          uniquement à montrer comment la plateforme les affichera, bande de confiance comprise.
+          uniquement à montrer comment la plateforme les affichera, bande comprise.
         </p>
       )}
       {prevision && !estDemonstration(prevision) && (

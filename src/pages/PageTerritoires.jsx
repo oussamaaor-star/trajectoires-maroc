@@ -14,7 +14,15 @@ const indicateur = valeursRegionales[0]
    haut, c'est ce qui se lit le mieux. */
 const regions = Object.entries(nomsRegions)
   .map(([code, nom]) => ({ code, nom, valeur: indicateur.valeurs[code] ?? null }))
-  .sort((a, b) => (b.valeur ?? 0) - (a.valeur ?? 0))
+  .sort((a, b) => {
+      /* Une valeur absente n’est pas un zéro : elle va en fin de liste,
+         sinon elle s’intercale au milieu des régions qui valent
+         vraiment zéro — le dernier endroit du code où le trou était
+         encore traité comme un chiffre. */
+      if (a.valeur == null) return 1
+      if (b.valeur == null) return -1
+      return b.valeur - a.valeur
+    })
 
 /* ============================================================================
    PageTerritoires — /territoires

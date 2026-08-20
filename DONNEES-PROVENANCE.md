@@ -9,7 +9,7 @@
 > **Une seule exception, et elle est signalée dans l'interface :** le fichier
 > `src/data/predictions.json` ne sort d'aucun modèle (voir la section dédiée
 > plus bas). Les indicateurs économiques **régionaux** restent également à
-> livrer — la carte affiche pour l'instant une donnée démographique.
+> livrer — la page Territoires affiche pour l'instant une donnée démographique.
 
 ## Fichiers
 
@@ -112,9 +112,10 @@ Ce contrôle n'est pas seulement documenté, il est **automatisé** : le test
 échoue si un seul chiffre est altéré.
 
 > ⚠️ **C'est une donnée STRUCTURELLE, pas économique.** Elle est affichée pour que
-> la carte fonctionne sur des chiffres réels et vérifiables en attendant les
-> indicateurs sectoriels du binôme data. Le site le dit lui-même : un encart
-> au-dessus de la carte (champ `note` du fichier de données) le précise, et il
+> la page Territoires fonctionne sur des chiffres réels et vérifiables en
+> attendant les indicateurs sectoriels du binôme data. Le site le dit
+> lui-même : un encart au-dessus des barres (champ `note` du fichier de
+> données) le précise, et il
 > disparaîtra tout seul quand l'indicateur affiché sera économique.
 
 **Ce qui a été volontairement écarté : les superficies régionales.** Aucun tableau
@@ -157,12 +158,15 @@ sur une valeur, on ne la met pas.
 source.** Il a été écrit à la main le 21/07/2026 pour développer et tester
 l'affichage des prévisions **avant** que le binôme data ne livre ses modèles.
 
-- Les deux séries couvertes (`exports_voitures`, `dependance_energetique`)
-  portent le champ `"modele": "démonstration"`.
+- **Une seule série est couverte aujourd’hui**, `exports_voitures` (2026-2028) ;
+  elle porte le champ `"modele": "démonstration"`. La série énergétique a été
+  retirée du fichier : son dernier relevé date de 2023, et le prolongement
+  portait donc sur des années déjà écoulées.
 - Ce champ est ce qui déclenche, sur le site, le bandeau rouge/coloré
   « **Prévisions de démonstration — en attente des modèles de l'équipe data** »
-  au-dessus du graphique concerné, ainsi que la mention dans la vue
-  « Données » et dans l'export CSV. Rien n'est affiché sans avertissement.
+  au-dessus du graphique concerné. La vue « Données » et l'export CSV, eux,
+  **excluent** ces années : on ne télécharge que de l'observé. Rien n'est
+  affiché sans avertissement, et rien n'est exporté sans avoir été observé.
 - Le jour où le binôme livre un vrai fichier (champ `modele` renseigné :
   `Prophet`, `ARIMA`…), le bandeau disparaît **tout seul** et laisse place à
   une mention discrète « Modèle : Prophet ». Aucune ligne de code à modifier.
@@ -175,11 +179,11 @@ aucun ajustement, aucune validation.
 | Série | Dernier point réel | Prolongement écrit à la main |
 |---|---|---|
 | Exportations de voitures | 59,11 Md DH (2025) | 61,11 / 63,11 / 65,10 (2026-2028), intervalle qui s'élargit de ±3,7 à ±11,7 |
-| Dépendance énergétique | 93,6 % (2023) | 94,57 / 95,53 / 96,50 (2024-2026), intervalle de ±1 à ±3 **point** de pourcentage, plafonné à 100 % |
 
-La bande de la dépendance énergétique est exprimée en **points**, pas en
-proportion : une bande proportionnelle donnait une borne haute à 113,87 %,
-c'est-à-dire un pays qui importerait plus d'énergie qu'il n'en utilise.
+*(Une ligne « Dépendance énergétique » figurait ici jusqu'au 20/08/2026. Elle a
+été retirée avec la série elle-même : prolonger jusqu'en 2026 une série dont le
+dernier relevé date de 2023 revenait à dessiner en pointillés des années déjà
+écoulées.)*
 
 **À faire dès la livraison du binôme :** déposer `predictions.csv` dans
 `donnees-binome/` puis lancer `npm run convertir`, qui régénère intégralement ce

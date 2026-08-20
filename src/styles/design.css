@@ -992,3 +992,13 @@ code { overflow-wrap: anywhere; }
   .etiquette-serie,
   .etiquette-valeur { display: none; }
 }
+
+/* L’ombre de debordement annonce un defilement. Depuis que la
+   classe --etroit ramene la largeur minimale de 640 a 300 pixels,
+   une table a deux colonnes tient dans l’ecran : l’ombre
+   annoncerait un defilement qui n’existe pas. */
+.defilement-tableau--etroit { box-shadow: none; }
+
+/* « (data/clean/indicateurs_long.csv) » ne peut se couper nulle part :
+   a 320 pixels, il faisait deborder toute la page Sources de 15 px. */
+.carte-source h3 { overflow-wrap: anywhere; }

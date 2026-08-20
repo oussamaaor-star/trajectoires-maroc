@@ -54,7 +54,14 @@ function phraseEvolution(serie) {
   }
 
   if (premier.valeur <= 0) {
-    return `De ${depart} à ${arrivee} : forte progression depuis un niveau très faible (aucun pourcentage n’est calculable à partir de zéro).`
+    /* Le sens doit être constaté, pas supposé : une série qui part de
+       zéro peut très bien descendre. Sans cette garde, la phrase
+       affichée écrivait « forte progression » sous une courbe qui
+       baisse. */
+    const sens = dernier.valeur >= premier.valeur
+      ? 'forte progression'
+      : 'recul'
+    return `De ${depart} à ${arrivee} : ${sens} depuis un niveau très faible (aucun pourcentage n’est calculable à partir de zéro).`
   }
 
   const rapport = dernier.valeur / premier.valeur
