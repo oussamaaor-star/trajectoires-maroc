@@ -28,7 +28,7 @@
   ],
   "redirects": [
     {
-      "source": "/:chemin*/",
+      "source": "/:chemin+/",
       "destination": "/:chemin*",
       "permanent": true
     }
