@@ -60,8 +60,12 @@
   --vigilance: #9a5b00;
 
   /* Propres aux graphiques */
-  --grille-graphique: #e8eae7;   /* grille horizontale, très discrète */
-  --axe-graphique:    #c9cdc9;   /* ligne de base de l'axe X */
+  /* Grille et axe : relevés à 1,21:1 et 1,61:1 sur fond blanc, c'est-à-dire
+     invisibles dès qu'on s'éloigne d'un écran — or ce graphique est fait pour
+     être projeté. Sans grille, on ne peut plus estimer une valeur ; sans axe,
+     la courbe flotte. Portés à 1,91:1 et 3,50:1. */
+  --grille-graphique: #b8bdb7;   /* grille horizontale (1,91:1 sur blanc) */
+  --axe-graphique:    #848b84;   /* ligne de base de l'axe X (3,50:1) */
   --serie-contexte:   #8a929c;   /* séries grises de contexte (le « héros » est en couleur) */
 
   /* Typographie */
@@ -626,8 +630,13 @@ code { overflow-wrap: anywhere; }
    disparaît toute seule — c'est le champ `modele` du fichier qui décide. */
 .mention-prevision--demonstration {
   padding: var(--esp-2);
-  border-inline-start: 3px solid #b58900;
-  background: #fdf6e3;
+  /* L'avertissement le plus important de la plateforme — « ces valeurs ne
+     sortent d'aucun modèle » — reposait sur un fond à 1,08:1 : au
+     vidéoprojecteur il se lisait comme un paragraphe ordinaire. Un cadre
+     complet, et non plus un simple filet à gauche, le détache du texte. */
+  border: 1px solid #b58900;
+  border-inline-start: 5px solid #b58900;
+  background: #fbeec2;
   color: var(--encre);
   border-radius: 4px;
 }

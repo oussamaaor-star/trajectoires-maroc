@@ -26,9 +26,9 @@ Ils portent volontairement un autre nom que les fichiers attendus, pour que
 - **La colonne `modele`** doit porter le nom réel du modèle. Vide ou
   « démonstration », la plateforme affiche un avertissement disant que les
   valeurs ne sortent d'aucun modèle statistique.
-- **Une cellule de valeur vide est acceptée** : la région reste sans donnée et
-  s'affiche hachurée sur la carte. Ne jamais combler un trou par une
-  estimation.
+- **Une cellule de valeur vide est acceptée** : la région reste sans donnée.
+  La page Territoires ne lui dessine alors aucune barre et affiche « — » à la
+  place de sa valeur. Ne jamais combler un trou par une estimation.
 
 ## Sécurité
 
